@@ -54,3 +54,9 @@ test("the landing page remains usable on a mobile viewport", async ({
     page.getByText("Datos simulados para demostración", { exact: true }),
   ).toBeVisible();
 });
+
+test("portfolio charts render their evidence marks", async ({ page }) => {
+  await page.goto("/inteligencia/");
+  await expect(page.locator(".recharts-bar-rectangle")).toHaveCount(6);
+  await expect(page.locator(".recharts-line-curve")).toHaveCount(2);
+});

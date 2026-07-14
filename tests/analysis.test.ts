@@ -17,11 +17,15 @@ describe("getDemoAnalysis", () => {
 
     expect(result.status).toBe("needs_evidence");
     expect(result.confidence).toBeLessThan(0.65);
-    expect(result.additionalEvidenceNeeded).toContain("Una vista general de la estancia");
+    expect(result.additionalEvidenceNeeded).toContain(
+      "Una vista general de la estancia",
+    );
     expect(result.humanReviewRequired).toBe(true);
   });
 
   it("throws for an unknown synthetic asset instead of fabricating a result", () => {
-    expect(() => getDemoAnalysis("unknown-asset")).toThrow("Unknown demo asset");
+    expect(() => getDemoAnalysis("unknown-asset")).toThrow(
+      "Unknown demo asset",
+    );
   });
 });

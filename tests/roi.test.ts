@@ -23,16 +23,22 @@ describe("calculateROI", () => {
   });
 
   it("applies a first-year realization factor without changing steady-state economics", () => {
-    const result = calculateROI({ ...PRUDENT_ROI_INPUTS, firstYearRealization: 0.5 });
+    const result = calculateROI({
+      ...PRUDENT_ROI_INPUTS,
+      firstYearRealization: 0.5,
+    });
 
-    expect(result.firstYearGrossBenefit).toBeCloseTo(result.steadyStateGrossBenefit * 0.5, 2);
+    expect(result.firstYearGrossBenefit).toBeCloseTo(
+      result.steadyStateGrossBenefit * 0.5,
+      2,
+    );
     expect(result.firstYearROI).toBeLessThan(result.steadyStateROI);
   });
 
   it("rejects impossible input values", () => {
-    expect(() => calculateROI({ ...PRUDENT_ROI_INPUTS, annualHomes: 0 })).toThrow(
-      "annualHomes",
-    );
+    expect(() =>
+      calculateROI({ ...PRUDENT_ROI_INPUTS, annualHomes: 0 }),
+    ).toThrow("annualHomes");
     expect(() =>
       calculateROI({ ...PRUDENT_ROI_INPUTS, repeatVisitReduction: 1.5 }),
     ).toThrow("repeatVisitReduction");

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   Check,
@@ -28,10 +28,34 @@ export function GuidedDemo() {
   const [step, setStep] = useState(0);
   const [technicalApproval, setTechnicalApproval] = useState(false);
   const [customerConformity, setCustomerConformity] = useState(false);
+  const [evidenceRequested, setEvidenceRequested] = useState(false);
+  const demoRef = useRef<HTMLElement>(null);
   const analysis = getDemoAnalysis("window-seal-detail");
 
+  useEffect(() => {
+    if (step === 0) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      demoRef.current?.focus({ preventScroll: true });
+      demoRef.current?.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [step]);
+
   return (
-    <section aria-live="polite">
+    <section
+      ref={demoRef}
+      tabIndex={-1}
+      aria-label={`Paso ${Math.min(step + 1, 6)} de 6: ${progress[Math.min(step, 5)]}`}
+      aria-live="polite"
+    >
       <div className="demo-progress" aria-label="Progreso de la demostración">
         {progress.map((label, index) => (
           <div
@@ -84,8 +108,8 @@ export function GuidedDemo() {
                 <button className="primary-button" onClick={() => setStep(1)}>
                   Analizar incidencia <Sparkles size={16} aria-hidden="true" />
                 </button>
-                <button className="secondary-button" type="button">
-                  Cambiar muestra
+                <button className="secondary-button" type="button" disabled>
+                  Otra muestra · próximamente
                 </button>
               </div>
             </div>
@@ -174,12 +198,24 @@ export function GuidedDemo() {
                 El análisis se limita a la información visible y no constituye
                 un diagnóstico técnico certificado.
               </div>
+              {evidenceRequested && (
+                <div className="notice aqua" role="status">
+                  Solicitud registrada: vista general, referencia del sistema y
+                  comprobación presencial.
+                </div>
+              )}
               <div className="action-row">
                 <button className="primary-button" onClick={() => setStep(2)}>
                   Validar y continuar <ArrowRight size={16} />
                 </button>
-                <button className="secondary-button">
-                  Solicitar evidencia
+                <button
+                  className="secondary-button"
+                  onClick={() => setEvidenceRequested(true)}
+                  disabled={evidenceRequested}
+                >
+                  {evidenceRequested
+                    ? "Evidencia solicitada"
+                    : "Solicitar evidencia"}
                 </button>
               </div>
             </div>
@@ -237,7 +273,9 @@ export function GuidedDemo() {
                 <button className="primary-button" onClick={() => setStep(3)}>
                   Mantener vinculadas <Link2 size={16} />
                 </button>
-                <button className="secondary-button">Mantener separadas</button>
+                <button className="secondary-button" onClick={() => setStep(3)}>
+                  Mantener separadas
+                </button>
               </div>
             </article>
           </div>

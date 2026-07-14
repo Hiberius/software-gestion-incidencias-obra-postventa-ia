@@ -36,13 +36,13 @@ export function CategoryChart() {
           <CartesianGrid vertical={false} stroke="rgba(7,27,34,.08)" />
           <XAxis
             dataKey="name"
-            tick={{ fontSize: 9, fill: "#6d7777" }}
+            tick={{ fontSize: 11, fill: "#596565" }}
             angle={-18}
             textAnchor="end"
             height={54}
           />
           <YAxis
-            tick={{ fontSize: 9, fill: "#6d7777" }}
+            tick={{ fontSize: 11, fill: "#596565" }}
             axisLine={false}
             tickLine={false}
           />
@@ -50,7 +50,12 @@ export function CategoryChart() {
             contentStyle={tooltipStyle}
             cursor={{ fill: "rgba(67,213,189,.08)" }}
           />
-          <Bar dataKey="value" fill="#0c816f" radius={[1, 1, 0, 0]} />
+          <Bar
+            dataKey="value"
+            fill="#0c816f"
+            radius={[1, 1, 0, 0]}
+            isAnimationActive={false}
+          />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -70,9 +75,9 @@ export function TrendChart() {
           margin={{ left: -16, right: 16, top: 8, bottom: 8 }}
         >
           <CartesianGrid vertical={false} stroke="rgba(7,27,34,.08)" />
-          <XAxis dataKey="month" tick={{ fontSize: 9, fill: "#6d7777" }} />
+          <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#596565" }} />
           <YAxis
-            tick={{ fontSize: 9, fill: "#6d7777" }}
+            tick={{ fontSize: 11, fill: "#596565" }}
             axisLine={false}
             tickLine={false}
           />
@@ -83,6 +88,7 @@ export function TrendChart() {
             stroke="#e6b06c"
             strokeWidth={2}
             dot={{ r: 3 }}
+            isAnimationActive={false}
           />
           <Line
             type="monotone"
@@ -90,6 +96,7 @@ export function TrendChart() {
             stroke="#0c816f"
             strokeWidth={2}
             dot={{ r: 3 }}
+            isAnimationActive={false}
           />
         </LineChart>
       </ResponsiveContainer>

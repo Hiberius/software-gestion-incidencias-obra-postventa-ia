@@ -57,7 +57,9 @@ export function calculateROI(rawInputs: ROIInputs): ROIResult {
   const parsed = roiInputSchema.safeParse(rawInputs);
 
   if (!parsed.success) {
-    const fields = parsed.error.issues.map((issue) => issue.path.join(".")).join(", ");
+    const fields = parsed.error.issues
+      .map((issue) => issue.path.join("."))
+      .join(", ");
     throw new Error(`Invalid ROI input: ${fields}`);
   }
 
@@ -70,12 +72,15 @@ export function calculateROI(rawInputs: ROIInputs): ROIResult {
       ? inputs.baselineRepeatVisitRate * inputs.repeatVisitReduction
       : inputs.repeatVisitReduction;
   const avoidedRepeatVisits = annualIncidentVolume * avoidedRate;
-  const avoidedRepeatVisitCosts = avoidedRepeatVisits * inputs.averageRepeatVisitCost;
+  const avoidedRepeatVisitCosts =
+    avoidedRepeatVisits * inputs.averageRepeatVisitCost;
   const steadyStateGrossBenefit = adminSavings + avoidedRepeatVisitCosts;
   const steadyStateNetBenefit = steadyStateGrossBenefit - inputs.firstYearCost;
   const steadyStateROI = (steadyStateNetBenefit / inputs.firstYearCost) * 100;
-  const steadyStatePaybackMonths = inputs.firstYearCost / (steadyStateGrossBenefit / 12);
-  const firstYearGrossBenefit = steadyStateGrossBenefit * inputs.firstYearRealization;
+  const steadyStatePaybackMonths =
+    inputs.firstYearCost / (steadyStateGrossBenefit / 12);
+  const firstYearGrossBenefit =
+    steadyStateGrossBenefit * inputs.firstYearRealization;
   const firstYearNetBenefit = firstYearGrossBenefit - inputs.firstYearCost;
   const firstYearROI = (firstYearNetBenefit / inputs.firstYearCost) * 100;
 

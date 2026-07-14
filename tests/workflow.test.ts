@@ -42,7 +42,8 @@ describe("canTransition", () => {
       canTransition("Cerrada", "Reabierta", {
         technicalApproval: true,
         customerConformity: true,
-        reopenReason: "El sellado vuelve a presentar una discontinuidad visible.",
+        reopenReason:
+          "El sellado vuelve a presentar una discontinuidad visible.",
       }),
     ).toBe(true);
     expect(

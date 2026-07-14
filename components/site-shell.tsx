@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { ArrowUpRight, CircleDot } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { clsx } from "clsx";
@@ -22,6 +23,14 @@ function isActive(pathname: string, href: string) {
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const activeLinkRef = useRef<HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    activeLinkRef.current?.scrollIntoView({
+      block: "nearest",
+      inline: "center",
+    });
+  }, [pathname]);
 
   return (
     <div className="site-frame">
@@ -41,6 +50,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <Link
               key={item.href}
               href={item.href}
+              ref={isActive(pathname, item.href) ? activeLinkRef : undefined}
               className={clsx(
                 "nav-link",
                 isActive(pathname, item.href) && "is-active",

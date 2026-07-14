@@ -30,15 +30,15 @@ Il piano adotta quindi due livelli:
 
 Il comitato dichiara di valutare problema/ROI/fattibilità, originalità, qualità tecnologica e UX, rigore di documentazione e demo, potenziale di crescita e strategia d'implantación. Ogni artefatto deve quindi provare sette tesi:
 
-| Tesi | Prova nella candidatura |
-|---|---|
-| Esiste un problema operativo concreto | perdita di informazioni, ticket incompleti, duplicati, riaperture, coordinamento fornitori e chiusure non verificate |
-| REPASO AI riduce lavoro e variabilità | percorso guidato, classificazione assistita, richiesta di evidenze mancanti, SLA e checklist |
-| Il valore è misurabile | simulatore ROI editabile e KPI di pilot prima/dopo |
-| La soluzione è implementabile | demo locale deterministica, integrazione CSV/API/webhook, human review, hosting UE/SSO/audit come percorso enterprise |
-| La proposta è originale | il closed loop collega chiusura verificata, ricorrenze, prevenzione e scorecard, invece di replicare un ticket manager |
-| Tecnologia e UX sono solide | percorso guidato, accessibilità, test automatici e fallback senza API key |
-| Documentazione e crescita sono credibili | fonti tracciate, piano pilot, roadmap enterprise e strategia di integrazione graduale |
+| Tesi                                     | Prova nella candidatura                                                                                                |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Esiste un problema operativo concreto    | perdita di informazioni, ticket incompleti, duplicati, riaperture, coordinamento fornitori e chiusure non verificate   |
+| REPASO AI riduce lavoro e variabilità    | percorso guidato, classificazione assistita, richiesta di evidenze mancanti, SLA e checklist                           |
+| Il valore è misurabile                   | simulatore ROI editabile e KPI di pilot prima/dopo                                                                     |
+| La soluzione è implementabile            | demo locale deterministica, integrazione CSV/API/webhook, human review, hosting UE/SSO/audit come percorso enterprise  |
+| La proposta è originale                  | il closed loop collega chiusura verificata, ricorrenze, prevenzione e scorecard, invece di replicare un ticket manager |
+| Tecnologia e UX sono solide              | percorso guidato, accessibilità, test automatici e fallback senza API key                                              |
+| Documentazione e crescita sono credibili | fonti tracciate, piano pilot, roadmap enterprise e strategia di integrazione graduale                                  |
 
 ## 3. Demo minima vincente
 
@@ -340,19 +340,19 @@ npx playwright test
 
 Un agente nuovo deve trovare questi artefatti senza ricostruire il contesto:
 
-| Percorso previsto | Contenuto |
-|---|---|
-| `package.json` | Node 22, npm scripts e `npm run verify` |
-| `app/` | sei percorsi della demo e route server-side AI opzionale |
-| `lib/demo-data.ts` | seed e fixture sintetiche condivise |
-| `lib/schemas.ts` | schemi Zod per analisi, incidente e audit event |
-| `lib/roi.ts` | formule, scenari e ramp-up |
-| `tests/` e `e2e/` | unit test e percorso guidato Playwright |
-| `public/demo/` | immagini sintetiche con origine registrata |
-| `docs/claims-ledger.md` | claim, fonte, tipo e artefatto d'uso |
-| `docs/demo-script.md` | script spagnolo da 90 secondi e 3 minuti |
-| `THIRD_PARTY_NOTICES.md` e `docs/assets-ledger.md` | dipendenze, asset, licenze e titolarità |
-| `submission/` | PDF da inviare, PPTX sorgente, formulario, video e checklist |
+| Percorso previsto                                  | Contenuto                                                    |
+| -------------------------------------------------- | ------------------------------------------------------------ |
+| `package.json`                                     | Node 22, npm scripts e `npm run verify`                      |
+| `app/`                                             | sei percorsi della demo e route server-side AI opzionale     |
+| `lib/demo-data.ts`                                 | seed e fixture sintetiche condivise                          |
+| `lib/schemas.ts`                                   | schemi Zod per analisi, incidente e audit event              |
+| `lib/roi.ts`                                       | formule, scenari e ramp-up                                   |
+| `tests/` e `e2e/`                                  | unit test e percorso guidato Playwright                      |
+| `public/demo/`                                     | immagini sintetiche con origine registrata                   |
+| `docs/claims-ledger.md`                            | claim, fonte, tipo e artefatto d'uso                         |
+| `docs/demo-script.md`                              | script spagnolo da 90 secondi e 3 minuti                     |
+| `THIRD_PARTY_NOTICES.md` e `docs/assets-ledger.md` | dipendenze, asset, licenze e titolarità                      |
+| `submission/`                                      | PDF da inviare, PPTX sorgente, formulario, video e checklist |
 
 Lo stato valido più recente è identificato da checkpoint Git locali dopo S1, S2, S3 e S4; se Git resta privo di identità, usare snapshot ZIP datati nella cartella `checkpoints/`.
 
@@ -383,17 +383,17 @@ Lo stato valido più recente è identificato da checkpoint Git locali dopo S1, S
 
 ## 8. Rischi principali e contromisure
 
-| Rischio | Probabilità / impatto | Contromisura |
-|---|---|---|
-| Scope eccessivo | alta / critica | sei percorsi, dati locali, niente backend reale obbligatorio |
-| Demo instabile | media / alta | modalità deterministica, E2E, URL primario e video obbligatorio di backup |
-| Claim non sostenuti | media / critica | claims ledger e separazione fonte/assunzione/target |
-| ROI contestabile | alta / alta | baseline esplicita, riduzione relativa vs punti percentuali, ramp-up e sensitivity range |
-| Prodotto percepito come ticket manager | media / alta | mostrare closed loop, prevenzione e scorecard entro il primo minuto |
-| Dipendenza da AI generativa | media / media | demo senza chiave, schema validato, astensione e human review |
-| IP o materiali divulgabili | media / alta | asset ledger, notices, titolarità e controllo contenuti confidenziali |
-| Accesso deploy/form | media / critica | S-1, video locale di backup e prova anticipata del form |
-| Invio tardivo | media / critica | invio 15 luglio ore 17:00, retry fino alle 19:30, nessun buffer sul 16 |
+| Rischio                                | Probabilità / impatto | Contromisura                                                                             |
+| -------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------- |
+| Scope eccessivo                        | alta / critica        | sei percorsi, dati locali, niente backend reale obbligatorio                             |
+| Demo instabile                         | media / alta          | modalità deterministica, E2E, URL primario e video obbligatorio di backup                |
+| Claim non sostenuti                    | media / critica       | claims ledger e separazione fonte/assunzione/target                                      |
+| ROI contestabile                       | alta / alta           | baseline esplicita, riduzione relativa vs punti percentuali, ramp-up e sensitivity range |
+| Prodotto percepito come ticket manager | media / alta          | mostrare closed loop, prevenzione e scorecard entro il primo minuto                      |
+| Dipendenza da AI generativa            | media / media         | demo senza chiave, schema validato, astensione e human review                            |
+| IP o materiali divulgabili             | media / alta          | asset ledger, notices, titolarità e controllo contenuti confidenziali                    |
+| Accesso deploy/form                    | media / critica       | S-1, video locale di backup e prova anticipata del form                                  |
+| Invio tardivo                          | media / critica       | invio 15 luglio ore 17:00, retry fino alle 19:30, nessun buffer sul 16                   |
 
 ## 9. Regole di mutazione del piano
 

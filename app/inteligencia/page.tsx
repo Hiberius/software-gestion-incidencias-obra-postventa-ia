@@ -1,11 +1,7 @@
 import Link from "next/link";
-import {
-  AlertCircle,
-  ArrowRight,
-  ClipboardPlus,
-  TrendingUp,
-} from "lucide-react";
+import { AlertCircle, ArrowRight, TrendingUp } from "lucide-react";
 import { CategoryChart, TrendChart } from "@/components/dashboard-charts";
+import { PreventiveAction } from "@/components/preventive-action";
 import { dashboardMetrics, supplierScores } from "@/lib/demo-data";
 
 export default function IntelligencePage() {
@@ -48,9 +44,7 @@ export default function IntelligencePage() {
             <li>Referencia del material o lote.</li>
             <li>Comprobación presencial y validación.</li>
           </ul>
-          <button className="primary-button aqua">
-            Crear checklist preventiva <ClipboardPlus size={16} />
-          </button>
+          <PreventiveAction />
         </aside>
       </div>
 

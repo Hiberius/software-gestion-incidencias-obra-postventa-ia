@@ -47,21 +47,25 @@ const ANALYSES: Record<DemoAssetId, DemoAnalysis> = {
   },
   "ambiguous-moisture": {
     status: "needs_evidence",
-    summary: "La evidencia no permite clasificar con suficiente confianza la marca visible.",
+    summary:
+      "La evidencia no permite clasificar con suficiente confianza la marca visible.",
     category: "Por determinar",
     constructionElement: "Paramento interior",
     room: "Por confirmar",
     probableTrade: "Por determinar",
     severity: "Por determinar",
     confidence: 0.43,
-    visibleEvidence: ["Marca localizada sin contexto suficiente de estancia o escala."],
+    visibleEvidence: [
+      "Marca localizada sin contexto suficiente de estancia o escala.",
+    ],
     additionalEvidenceNeeded: [
       "Una vista general de la estancia",
       "Una medición de humedad",
       "Comprobación presencial",
     ],
     possibleDuplicate: null,
-    recommendedAction: "Solicitar evidencia adicional antes de proponer una clasificación.",
+    recommendedAction:
+      "Solicitar evidencia adicional antes de proponer una clasificación.",
     proposedSLA: "Revisión tras recibir evidencia",
     humanReviewRequired: true,
     canCloseIncident: false,
