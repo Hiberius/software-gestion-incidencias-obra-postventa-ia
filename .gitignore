@@ -9,4 +9,6 @@ test-results
 .DS_Store
 .wrangler
 .tmp
+tmp/
+output/*.zip
 *.tsbuildinfo
