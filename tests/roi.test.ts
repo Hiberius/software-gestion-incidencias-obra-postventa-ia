@@ -35,12 +35,35 @@ describe("calculateROI", () => {
     expect(result.firstYearROI).toBeLessThan(result.steadyStateROI);
   });
 
+  it("represents a scenario without benefits without returning Infinity", () => {
+    const result = calculateROI({
+      ...PRUDENT_ROI_INPUTS,
+      adminMinutesSaved: 0,
+      baselineRepeatVisitRate: 0,
+      repeatVisitReduction: 0,
+    });
+
+    expect(result.steadyStateGrossBenefit).toBe(0);
+    expect(result.steadyStatePaybackMonths).toBeNull();
+  });
+
   it("rejects impossible input values", () => {
     expect(() =>
       calculateROI({ ...PRUDENT_ROI_INPUTS, annualHomes: 0 }),
     ).toThrow("annualHomes");
     expect(() =>
       calculateROI({ ...PRUDENT_ROI_INPUTS, repeatVisitReduction: 1.5 }),
+    ).toThrow("repeatVisitReduction");
+    expect(() =>
+      calculateROI({ ...PRUDENT_ROI_INPUTS, annualHomes: 1_000_001 }),
+    ).toThrow("annualHomes");
+    expect(() =>
+      calculateROI({
+        ...PRUDENT_ROI_INPUTS,
+        baselineRepeatVisitRate: 0.05,
+        repeatVisitReductionMode: "percentage_points",
+        repeatVisitReduction: 0.1,
+      }),
     ).toThrow("repeatVisitReduction");
   });
 });

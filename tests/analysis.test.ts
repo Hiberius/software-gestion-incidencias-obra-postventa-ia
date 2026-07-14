@@ -6,17 +6,25 @@ describe("getDemoAnalysis", () => {
     const result = getDemoAnalysis("window-seal-detail");
 
     expect(result.status).toBe("suggestion");
+    expect(result.evidenceStrength).toBe("sufficient_for_review");
+    expect(result).not.toHaveProperty("confidence");
     expect(result.category).toBe("Carpintería exterior");
     expect(result.humanReviewRequired).toBe(true);
     expect(result.canCloseIncident).toBe(false);
     expect(result.visibleEvidence.length).toBeGreaterThan(0);
+    expect(result.possibleDuplicate).toMatchObject({
+      id: "INC-0187",
+      matchLevel: "alta",
+    });
+    expect(result.possibleDuplicate?.reasons).toHaveLength(3);
   });
 
-  it("abstains and requests specific evidence when confidence is low", () => {
+  it("abstains and requests specific evidence when the evidence is insufficient", () => {
     const result = getDemoAnalysis("ambiguous-moisture");
 
     expect(result.status).toBe("needs_evidence");
-    expect(result.confidence).toBeLessThan(0.65);
+    expect(result.evidenceStrength).toBe("insufficient");
+    expect(result).not.toHaveProperty("confidence");
     expect(result.additionalEvidenceNeeded).toContain(
       "Una vista general de la estancia",
     );

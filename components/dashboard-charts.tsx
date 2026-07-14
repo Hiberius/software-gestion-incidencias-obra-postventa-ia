@@ -14,10 +14,10 @@ import {
 import { categoryData, trendData } from "@/lib/demo-data";
 
 const tooltipStyle = {
-  background: "#071b22",
-  border: "1px solid rgba(242,240,232,.2)",
+  background: "var(--ink)",
+  border: "1px solid var(--line-dark)",
   borderRadius: 0,
-  color: "#f2f0e8",
+  color: "var(--paper)",
   fontSize: 11,
 };
 
@@ -33,26 +33,26 @@ export function CategoryChart() {
           data={categoryData}
           margin={{ left: -16, right: 8, top: 8, bottom: 18 }}
         >
-          <CartesianGrid vertical={false} stroke="rgba(7,27,34,.08)" />
+          <CartesianGrid vertical={false} stroke="var(--line)" />
           <XAxis
             dataKey="name"
-            tick={{ fontSize: 11, fill: "#596565" }}
+            tick={{ fontSize: 11, fill: "var(--muted)" }}
             angle={-18}
             textAnchor="end"
             height={54}
           />
           <YAxis
-            tick={{ fontSize: 11, fill: "#596565" }}
+            tick={{ fontSize: 11, fill: "var(--muted)" }}
             axisLine={false}
             tickLine={false}
           />
           <Tooltip
             contentStyle={tooltipStyle}
-            cursor={{ fill: "rgba(67,213,189,.08)" }}
+            cursor={{ fill: "var(--aqua-soft)" }}
           />
           <Bar
             dataKey="value"
-            fill="#0c816f"
+            fill="var(--aqua-dark)"
             radius={[1, 1, 0, 0]}
             isAnimationActive={false}
           />
@@ -74,10 +74,13 @@ export function TrendChart() {
           data={trendData}
           margin={{ left: -16, right: 16, top: 8, bottom: 8 }}
         >
-          <CartesianGrid vertical={false} stroke="rgba(7,27,34,.08)" />
-          <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#596565" }} />
+          <CartesianGrid vertical={false} stroke="var(--line)" />
+          <XAxis
+            dataKey="month"
+            tick={{ fontSize: 11, fill: "var(--muted)" }}
+          />
           <YAxis
-            tick={{ fontSize: 11, fill: "#596565" }}
+            tick={{ fontSize: 11, fill: "var(--muted)" }}
             axisLine={false}
             tickLine={false}
           />
@@ -85,7 +88,7 @@ export function TrendChart() {
           <Line
             type="monotone"
             dataKey="abiertas"
-            stroke="#e6b06c"
+            stroke="var(--amber)"
             strokeWidth={2}
             dot={{ r: 3 }}
             isAnimationActive={false}
@@ -93,7 +96,7 @@ export function TrendChart() {
           <Line
             type="monotone"
             dataKey="cerradas"
-            stroke="#0c816f"
+            stroke="var(--aqua-dark)"
             strokeWidth={2}
             dot={{ r: 3 }}
             isAnimationActive={false}

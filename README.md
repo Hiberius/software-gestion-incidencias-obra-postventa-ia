@@ -13,6 +13,8 @@ Demo pública e interactiva de una capa de inteligencia de calidad para construc
 - comparación antes/después y doble gate humano;
 - inteligencia preventiva, scorecard de proveedor y ROI editable;
 - metodología, fuentes, privacidad y límites claramente visibles.
+- seis imágenes WebP optimizadas con etiquetas de evidencia sintética;
+- cabeceras de seguridad para Cloudflare Pages y `security.txt`.
 
 Todos los datos, nombres, promociones e indicadores operativos de la demo son sintéticos.
 
@@ -48,7 +50,7 @@ npx wrangler pages project create repaso-ai --production-branch main
 npx wrangler pages deploy out --project-name=repaso-ai --branch=main
 ```
 
-La versión estática no necesita API, base de datos ni secretos. Si una fase posterior requiere OpenAI server-side, autenticación, persistencia o Server Actions, deberá migrarse a Cloudflare Workers con OpenNext.
+La versión estática no necesita API, base de datos ni secretos. `public/_headers` se copia al artefacto para que Pages aplique CSP, HSTS y el resto de políticas del navegador. Si una fase posterior requiere OpenAI server-side, autenticación, persistencia o Server Actions, deberá migrarse a Cloudflare Workers con OpenNext.
 
 ## Estado y límites
 
@@ -59,4 +61,4 @@ La versión estática no necesita API, base de datos ni secretos. Si una fase po
 - Integraciones enterprise reales: no; se muestran como vías de implantación.
 - API de OpenAI: no se usa en esta versión pública determinista.
 
-Consulta [arquitectura](docs/architecture.md), [seguridad y revisión humana](docs/ai-safety-and-human-review.md) y [guion de demo](docs/demo-script.md).
+Consulta [arquitectura](docs/architecture.md), [seguridad y revisión humana](docs/ai-safety-and-human-review.md), [revisión externa](docs/security-review.md) y [guion de demo](docs/demo-script.md).

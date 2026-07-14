@@ -6,12 +6,11 @@ export default function DemoPage() {
       <header className="page-intro">
         <div>
           <p className="eyebrow">Demo guiada · INC-0241</p>
-          <h1>De una señal incompleta a una decisión trazable.</h1>
+          <h1>Prueba el circuito completo.</h1>
         </div>
         <p className="page-intro-copy">
-          Recorre un caso sintético. Puedes validar, vincular, solicitar
-          evidencias y cerrar, pero la IA nunca toma por sí sola una decisión
-          técnica.
+          Empieza con una foto. Revisa la sugerencia, exige la evidencia que
+          falta y comprueba por qué el cierre siempre necesita personas.
         </p>
       </header>
       <GuidedDemo />

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <Link className="brand" href="/" aria-label="REPASO AI — inicio">
+    <Link className="brand" href="/" aria-label="REPASO AI, inicio">
       <span className="brand-mark" aria-hidden="true">
         <span />
         <span />

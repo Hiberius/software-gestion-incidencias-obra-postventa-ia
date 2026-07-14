@@ -1,17 +1,30 @@
 import { z } from "zod";
 
-const roiInputSchema = z.object({
-  annualHomes: z.number().positive(),
-  incidentsPerHome: z.number().positive(),
-  adminMinutesSaved: z.number().nonnegative(),
-  loadedHourlyCost: z.number().nonnegative(),
-  baselineRepeatVisitRate: z.number().min(0).max(1),
-  repeatVisitReductionMode: z.enum(["relative", "percentage_points"]),
-  repeatVisitReduction: z.number().min(0).max(1),
-  averageRepeatVisitCost: z.number().nonnegative(),
-  firstYearCost: z.number().positive(),
-  firstYearRealization: z.number().min(0).max(1),
-});
+const roiInputSchema = z
+  .object({
+    annualHomes: z.number().positive().max(1_000_000),
+    incidentsPerHome: z.number().positive().max(1_000),
+    adminMinutesSaved: z.number().nonnegative().max(1_440),
+    loadedHourlyCost: z.number().nonnegative().max(100_000),
+    baselineRepeatVisitRate: z.number().min(0).max(1),
+    repeatVisitReductionMode: z.enum(["relative", "percentage_points"]),
+    repeatVisitReduction: z.number().min(0).max(1),
+    averageRepeatVisitCost: z.number().nonnegative().max(10_000_000),
+    firstYearCost: z.number().positive().max(1_000_000_000_000),
+    firstYearRealization: z.number().min(0).max(1),
+  })
+  .superRefine((inputs, context) => {
+    if (
+      inputs.repeatVisitReductionMode === "percentage_points" &&
+      inputs.repeatVisitReduction > inputs.baselineRepeatVisitRate
+    ) {
+      context.addIssue({
+        code: "custom",
+        message: "La reducción no puede superar la baseline.",
+        path: ["repeatVisitReduction"],
+      });
+    }
+  });
 
 export type ROIInputs = z.infer<typeof roiInputSchema>;
 
@@ -24,7 +37,7 @@ export type ROIResult = {
   steadyStateGrossBenefit: number;
   steadyStateNetBenefit: number;
   steadyStateROI: number;
-  steadyStatePaybackMonths: number;
+  steadyStatePaybackMonths: number | null;
   firstYearGrossBenefit: number;
   firstYearNetBenefit: number;
   firstYearROI: number;
@@ -78,7 +91,9 @@ export function calculateROI(rawInputs: ROIInputs): ROIResult {
   const steadyStateNetBenefit = steadyStateGrossBenefit - inputs.firstYearCost;
   const steadyStateROI = (steadyStateNetBenefit / inputs.firstYearCost) * 100;
   const steadyStatePaybackMonths =
-    inputs.firstYearCost / (steadyStateGrossBenefit / 12);
+    steadyStateGrossBenefit > 0
+      ? inputs.firstYearCost / (steadyStateGrossBenefit / 12)
+      : null;
   const firstYearGrossBenefit =
     steadyStateGrossBenefit * inputs.firstYearRealization;
   const firstYearNetBenefit = firstYearGrossBenefit - inputs.firstYearCost;

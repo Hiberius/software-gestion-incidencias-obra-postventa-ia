@@ -22,7 +22,7 @@
 >
 > Empezamos con una fotografía, un mensaje y una ubicación. La IA estructura el caso, sugiere clasificación y prioridad y pide una vista general, una referencia y una comprobación presencial. No diagnostica; prepara mejor la decisión.
 >
-> Un técnico revisa y edita la sugerencia. Después aparece un posible duplicado con una similitud del 86 %. Como son viviendas diferentes, el usuario conserva ambos registros y los vincula como recurrencia.
+> Un técnico revisa y edita la sugerencia. Después aparece un posible duplicado con coincidencia alta y razones visibles. Como son viviendas diferentes, el usuario conserva ambos registros y los vincula como recurrencia.
 >
 > La incidencia pasa a proveedor con propietario, SLA y auditoría. Al recibir las imágenes “después”, REPASO AI detecta que la primera entrega solo muestra una esquina. El proveedor completa la documentación. La IA señala coherencia visible, pero no certifica la reparación.
 >

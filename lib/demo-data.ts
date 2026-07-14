@@ -3,18 +3,30 @@ export const dashboardMetrics = [
     label: "Incidencias registradas",
     value: "126",
     note: "3 promociones ficticias",
+    kind: "synthetic_scenario",
+    disclosure: "Escenario sintético para demostrar el producto.",
   },
   {
     label: "Capturas completas",
     value: "86 %",
     note: "+21 pp vs. baseline simulada",
+    kind: "synthetic_scenario",
+    disclosure: "Comparación interna del escenario sintético.",
   },
   {
     label: "Tiempo de registro",
     value: "4m 12s",
     note: "−52 % en el escenario demo",
+    kind: "synthetic_scenario",
+    disclosure: "Tiempo simulado, no resultado operativo real.",
   },
-  { label: "Cierres trazables", value: "100 %", note: "88 de 88 cierres" },
+  {
+    label: "Cierres trazables",
+    value: "100 %",
+    note: "Objetivo del piloto",
+    kind: "pilot_target",
+    disclosure: "Meta de evaluación, no resultado conseguido.",
+  },
 ];
 
 export const categoryData = [
@@ -111,8 +123,20 @@ export const methodologySources = [
   },
   {
     label: "Estudio UPC sobre defectos de entrega",
-    href: "https://upcommons.upc.edu/",
+    href: "https://upcommons.upc.edu/entities/publication/010e4df7-6c54-4669-8976-680f71c0f0ce",
     description:
-      "Referencia académica; el dato concreto se validará antes del envío.",
+      "Artículo académico sobre 52.552 defectos de entrega en 2.179 viviendas de 16 promociones en España.",
+  },
+  {
+    label: "OWASP · Prompt Injection Prevention",
+    href: "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+    description:
+      "Controles de referencia para tratar texto, documentos e imágenes como entrada no fiable.",
+  },
+  {
+    label: "Cloudflare Pages · Headers",
+    href: "https://developers.cloudflare.com/pages/configuration/headers/",
+    description:
+      "Documentación oficial de los encabezados HTTP aplicados mediante el archivo _headers.",
   },
 ];

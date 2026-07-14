@@ -15,6 +15,7 @@ export type WorkflowState = (typeof WORKFLOW_STATES)[number];
 type TransitionContext = {
   technicalApproval: boolean;
   customerConformity: boolean;
+  actorRole: "ai" | "supplier" | "technician" | "customer" | "quality";
   reopenReason?: string;
 };
 
@@ -33,16 +34,45 @@ export function canTransition(
   to: WorkflowState,
   context: TransitionContext,
 ): boolean {
+  if (context.actorRole === "ai") {
+    return false;
+  }
+
   if (from === "Cerrada" && to === "Reabierta") {
-    return Boolean(context.reopenReason?.trim());
+    const canReopen = ["customer", "technician", "quality"].includes(
+      context.actorRole,
+    );
+    return canReopen && (context.reopenReason?.trim().length ?? 0) >= 12;
   }
 
   if (NEXT_STATE[from] !== to) {
     return false;
   }
 
+  if (context.actorRole === "supplier") {
+    return (
+      (from === "Asignada" && to === "En reparación") ||
+      (from === "En reparación" && to === "Pendiente de verificación")
+    );
+  }
+
+  if (context.actorRole === "customer") {
+    return false;
+  }
+
+  if (
+    to === "Pendiente de conformidad del cliente" &&
+    !context.technicalApproval
+  ) {
+    return false;
+  }
+
   if (to === "Cerrada") {
-    return context.technicalApproval && context.customerConformity;
+    return (
+      context.actorRole === "quality" &&
+      context.technicalApproval &&
+      context.customerConformity
+    );
   }
 
   return true;

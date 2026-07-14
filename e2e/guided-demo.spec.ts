@@ -5,7 +5,18 @@ test("a visitor can complete the evidence-backed guided demo", async ({
 }) => {
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: /De la foto al cierre verificado/i }),
+    page.getByRole("heading", {
+      name: /De una foto a una mejora verificable/i,
+    }),
+  ).toBeVisible();
+  await expect(page.getByText("Captura", { exact: true })).toBeVisible();
+  await expect(page.getByText("Decide", { exact: true })).toBeVisible();
+  await expect(page.getByText("Previene", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /Qué funciona hoy/i }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("img", { name: /responsable de calidad revisa/i }),
   ).toBeVisible();
 
   await page.getByRole("link", { name: "Iniciar demo guiada" }).click();
@@ -16,13 +27,19 @@ test("a visitor can complete the evidence-backed guided demo", async ({
 
   await page.getByRole("button", { name: "Analizar incidencia" }).click();
   await expect(
-    page.getByText("Sugerencia de IA — pendiente de validación técnica"),
+    page.getByText("Sugerencia de IA · pendiente de validación técnica"),
   ).toBeVisible();
+  await expect(
+    page.getByText("Evidencia suficiente para revisar"),
+  ).toBeVisible();
+  await expect(page.getByText(/Confianza \d+ %/)).toHaveCount(0);
 
   await page.getByRole("button", { name: "Validar y continuar" }).click();
   await expect(
     page.getByRole("heading", { name: "Posible duplicado" }),
   ).toBeVisible();
+  await expect(page.getByText("Coincidencia alta")).toBeVisible();
+  await expect(page.getByText("86 %")).toHaveCount(0);
 
   await page.getByRole("button", { name: "Mantener vinculadas" }).click();
   await page.getByRole("button", { name: "Revisar reparación" }).click();
@@ -43,7 +60,7 @@ test("a visitor can complete the evidence-backed guided demo", async ({
   ).toBeVisible();
 });
 
-test("the landing page remains usable on a mobile viewport", async ({
+test("the landing page remains usable without horizontal overflow", async ({
   page,
 }) => {
   await page.goto("/");
@@ -53,6 +70,27 @@ test("the landing page remains usable on a mobile viewport", async ({
   await expect(
     page.getByText("Datos simulados para demostración", { exact: true }),
   ).toBeVisible();
+  const dimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.content).toBe(dimensions.viewport);
+
+  if (dimensions.viewport < 600) {
+    const mobileNavigation = page.locator(".mobile-nav");
+    await expect(
+      mobileNavigation.getByRole("link", { name: "Demo", exact: true }),
+    ).toBeHidden();
+    const mobileTrigger = mobileNavigation.locator("summary");
+    await expect(mobileTrigger).toHaveAttribute(
+      "aria-label",
+      "Abrir navegación",
+    );
+    await mobileTrigger.click();
+    await expect(
+      mobileNavigation.getByRole("link", { name: "Demo", exact: true }),
+    ).toBeVisible();
+  }
 });
 
 test("portfolio charts render their evidence marks", async ({ page }) => {

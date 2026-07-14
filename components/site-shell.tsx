@@ -2,69 +2,73 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
-import { ArrowUpRight, CircleDot } from "lucide-react";
+import { ArrowUpRight, CircleDot, Menu } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { clsx } from "clsx";
 
 const NAVIGATION = [
-  { href: "/", label: "Inicio" },
-  { href: "/demo/", label: "Nueva incidencia" },
-  { href: "/seguimiento/", label: "Seguimiento" },
+  { href: "/demo/", label: "Demo" },
+  { href: "/seguimiento/", label: "Caso" },
   { href: "/verificacion/", label: "Verificación" },
   { href: "/inteligencia/", label: "Inteligencia" },
   { href: "/impacto/", label: "Impacto" },
 ];
 
 function isActive(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
   return pathname.startsWith(href.replace(/\/$/, ""));
+}
+
+function NavigationLinks({ pathname }: { pathname: string }) {
+  return NAVIGATION.map((item) => (
+    <Link
+      key={item.href}
+      href={item.href}
+      aria-current={isActive(pathname, item.href) ? "page" : undefined}
+      className={clsx("nav-link", isActive(pathname, item.href) && "is-active")}
+    >
+      {item.label}
+    </Link>
+  ));
 }
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const activeLinkRef = useRef<HTMLAnchorElement | null>(null);
-
-  useEffect(() => {
-    activeLinkRef.current?.scrollIntoView({
-      block: "nearest",
-      inline: "center",
-    });
-  }, [pathname]);
 
   return (
     <div className="site-frame">
+      <a className="skip-link" href="#main-content">
+        Saltar al contenido
+      </a>
       <div className="demo-ribbon">
         <span>
           <CircleDot size={12} aria-hidden="true" /> Datos simulados para
           demostración
         </span>
         <span className="ribbon-rule">
-          La IA propone; un profesional valida.
+          La IA propone. Una persona verifica.
         </span>
       </div>
       <header className="site-header">
         <Logo />
         <nav className="primary-nav" aria-label="Navegación principal">
-          {NAVIGATION.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              ref={isActive(pathname, item.href) ? activeLinkRef : undefined}
-              className={clsx(
-                "nav-link",
-                isActive(pathname, item.href) && "is-active",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+          <NavigationLinks pathname={pathname} />
         </nav>
         <Link className="header-cta" href="/demo/">
-          Demo <ArrowUpRight size={15} aria-hidden="true" />
+          Probar demo <ArrowUpRight size={15} aria-hidden="true" />
         </Link>
+        <details className="mobile-nav">
+          <summary aria-label="Abrir navegación">
+            <Menu size={19} aria-hidden="true" /> Menú
+          </summary>
+          <nav aria-label="Navegación móvil">
+            <NavigationLinks pathname={pathname} />
+            <Link className="nav-link" href="/metodologia/">
+              Seguridad y límites
+            </Link>
+          </nav>
+        </details>
       </header>
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <footer className="site-footer">
         <div>
           <Logo compact />
@@ -72,7 +76,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         </div>
         <div className="footer-note">
           <p>Propuesta independiente para Metrovacesa AI Challenge II.</p>
-          <Link href="/metodologia/">Metodología, fuentes y límites</Link>
+          <Link href="/metodologia/">Metodología, seguridad y límites</Link>
         </div>
       </footer>
     </div>

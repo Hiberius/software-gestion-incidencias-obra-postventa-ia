@@ -2,16 +2,20 @@ export type DemoAssetId = "window-seal-detail" | "ambiguous-moisture";
 
 export type DemoAnalysis = {
   status: "suggestion" | "needs_evidence";
+  evidenceStrength: "sufficient_for_review" | "insufficient";
   summary: string;
   category: string;
   constructionElement: string;
   room: string;
   probableTrade: string;
   severity: "Baja" | "Media" | "Alta" | "Por determinar";
-  confidence: number;
   visibleEvidence: string[];
   additionalEvidenceNeeded: string[];
-  possibleDuplicate: { id: string; similarity: number } | null;
+  possibleDuplicate: {
+    id: string;
+    matchLevel: "alta" | "media";
+    reasons: string[];
+  } | null;
   recommendedAction: string;
   proposedSLA: string;
   humanReviewRequired: true;
@@ -21,6 +25,7 @@ export type DemoAnalysis = {
 const ANALYSES: Record<DemoAssetId, DemoAnalysis> = {
   "window-seal-detail": {
     status: "suggestion",
+    evidenceStrength: "sufficient_for_review",
     summary:
       "Posible discontinuidad visible en la junta perimetral inferior derecha de la ventana.",
     category: "Carpintería exterior",
@@ -28,7 +33,6 @@ const ANALYSES: Record<DemoAssetId, DemoAnalysis> = {
     room: "Salón",
     probableTrade: "Carpintería de aluminio y sellados",
     severity: "Media",
-    confidence: 0.82,
     visibleEvidence: [
       "Junta visualmente irregular en la esquina inferior derecha.",
       "La imagen no permite comprobar el perímetro completo.",
@@ -38,7 +42,15 @@ const ANALYSES: Record<DemoAssetId, DemoAnalysis> = {
       "Referencia del sistema",
       "Comprobación presencial",
     ],
-    possibleDuplicate: { id: "INC-0187", similarity: 0.86 },
+    possibleDuplicate: {
+      id: "INC-0187",
+      matchLevel: "alta",
+      reasons: [
+        "Mismo sistema de ventana y promoción",
+        "Descripción semejante de corriente de aire",
+        "Detalle visible en el mismo encuentro constructivo",
+      ],
+    },
     recommendedAction:
       "Revisar presencialmente la continuidad de la junta y documentar el perímetro completo.",
     proposedSLA: "Validación en 24 h · intervención en 5 días laborables",
@@ -47,14 +59,14 @@ const ANALYSES: Record<DemoAssetId, DemoAnalysis> = {
   },
   "ambiguous-moisture": {
     status: "needs_evidence",
+    evidenceStrength: "insufficient",
     summary:
-      "La evidencia no permite clasificar con suficiente confianza la marca visible.",
+      "La evidencia no permite clasificar con suficiente solidez la marca visible.",
     category: "Por determinar",
     constructionElement: "Paramento interior",
     room: "Por confirmar",
     probableTrade: "Por determinar",
     severity: "Por determinar",
-    confidence: 0.43,
     visibleEvidence: [
       "Marca localizada sin contexto suficiente de estancia o escala.",
     ],

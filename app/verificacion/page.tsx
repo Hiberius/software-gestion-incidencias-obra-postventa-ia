@@ -13,12 +13,11 @@ export default function VerificationPage() {
       <header className="page-intro">
         <div>
           <p className="eyebrow">Verificación · INC-0241</p>
-          <h1>La evidencia informa. La persona decide.</h1>
+          <h1>Una foto no certifica una reparación.</h1>
         </div>
         <p className="page-intro-copy">
-          REPASO AI revisa la integridad documental y señala ausencias. No
-          comprueba el comportamiento del elemento, no certifica la reparación y
-          no cierra automáticamente.
+          REPASO AI comprueba si la documentación permite revisar el caso. El
+          técnico valida el resultado y el cliente confirma antes del cierre.
         </p>
       </header>
 
@@ -29,8 +28,8 @@ export default function VerificationPage() {
         </div>
         <div className="panel-body">
           <div className="analysis-grid">
-            <IncidentVisual label="ANTES · 02 JUL" />
-            <IncidentVisual repaired label="DESPUÉS · 08 JUL" />
+            <IncidentVisual variant="before" label="ANTES · 02 JUL" />
+            <IncidentVisual variant="after" label="DESPUÉS · 08 JUL" />
           </div>
           <div className="notice">
             Primera entrega rechazada: la imagen solo cubría una esquina. Se
@@ -42,9 +41,9 @@ export default function VerificationPage() {
               <ShieldAlert size={24} />
               <h2>Revisión documental</h2>
               <p>
-                “La junta visible parece continua en las imágenes aportadas. La
-                IA no puede comprobar el comportamiento del elemento ni
-                certificar la reparación.”
+                La junta visible parece continua en las imágenes. La IA no puede
+                comprobar el comportamiento del elemento ni certificar la
+                reparación.
               </p>
               <span className="status-pill amber">Asistencia de IA</span>
             </article>
@@ -52,8 +51,8 @@ export default function VerificationPage() {
               <CheckCircle2 size={24} />
               <h2>Validación técnica</h2>
               <p>
-                “Evidencia revisada y comprobación presencial registrada. La
-                actuación puede pasar a conformidad del cliente.”
+                Evidencia revisada y comprobación presencial registrada. La
+                actuación puede pasar a conformidad del cliente.
               </p>
               <span className="status-pill aqua">Laura Martín · 09 JUL</span>
             </article>
@@ -61,8 +60,8 @@ export default function VerificationPage() {
               <CircleUserRound size={24} />
               <h2>Conformidad</h2>
               <p>
-                “El cliente de demostración confirma que la incidencia ha
-                quedado resuelta.”
+                El cliente de demostración confirma que la incidencia ha quedado
+                resuelta.
               </p>
               <span className="status-pill aqua">09 JUL · 10:15</span>
             </article>

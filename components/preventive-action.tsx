@@ -18,7 +18,7 @@ export function PreventiveAction() {
       </button>
       {created && (
         <p className="inline-success" role="status">
-          Acción registrada · “Sellado perimetral de huecos — preentrega” ·
+          Acción registrada · “Sellado perimetral de huecos: preentrega” ·
           pendiente de aprobación.
         </p>
       )}

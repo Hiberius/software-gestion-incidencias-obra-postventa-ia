@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AlertCircle, ArrowRight, TrendingUp } from "lucide-react";
 import { CategoryChart, TrendChart } from "@/components/dashboard-charts";
+import { IncidentVisual } from "@/components/incident-visual";
 import { PreventiveAction } from "@/components/preventive-action";
 import { dashboardMetrics, supplierScores } from "@/lib/demo-data";
 
@@ -10,11 +11,11 @@ export default function IntelligencePage() {
       <header className="page-intro">
         <div>
           <p className="eyebrow">Inteligencia de cartera</p>
-          <h1>De cada incidencia, una mejora.</h1>
+          <h1>Un caso explica. Varios casos previenen.</h1>
         </div>
         <p className="page-intro-copy">
-          Los datos agregados descubren recurrencias, sostienen la evaluación de
-          proveedores y convierten señales revisables en acciones preventivas.
+          REPASO AI agrupa señales semejantes para que Calidad decida si existe
+          un patrón y qué acción preventiva merece la pena probar.
         </p>
       </header>
 
@@ -24,6 +25,7 @@ export default function IntelligencePage() {
             <label>{metric.label}</label>
             <strong>{metric.value}</strong>
             <span>{metric.note}</span>
+            <small>{metric.disclosure}</small>
           </article>
         ))}
       </section>
@@ -48,6 +50,18 @@ export default function IntelligencePage() {
         </aside>
       </div>
 
+      <section className="pattern-evidence">
+        <IncidentVisual variant="pattern" />
+        <div>
+          <p className="eyebrow">Por qué aparece la señal</p>
+          <h2>Tres casos comparten un encuentro constructivo semejante.</h2>
+          <p>
+            La agrupación sirve para revisar. No demuestra una causa común ni
+            atribuye responsabilidad al proveedor.
+          </p>
+        </div>
+      </section>
+
       <div style={{ marginTop: 24 }}>
         <TrendChart />
       </div>
@@ -70,11 +84,11 @@ export default function IntelligencePage() {
           </h2>
           <div>
             <span className="status-pill aqua">
-              <TrendingUp size={12} /> Resultado 84,7/100
+              <TrendingUp size={12} /> Escenario sintético 84,7/100
             </span>
             <p className="hero-microcopy">
-              Calidad 30 % · Costes 15 % · Plazos 20 % · Cumplimiento 20 % ·
-              Atención 15 %
+              Ponderación ilustrativa: Calidad 30 % · Costes 15 % · Plazos 20 %
+              · Cumplimiento 20 % · Atención 15 %
             </p>
           </div>
         </div>

@@ -80,12 +80,12 @@ export function GuidedDemo() {
               <span className="status-pill amber">Pendiente de análisis</span>
             </div>
             <div className="panel-body">
-              <IncidentVisual />
+              <IncidentVisual variant="before" priority />
               <div className="form-grid" style={{ marginTop: 24 }}>
                 <div className="field">
                   <label htmlFor="promotion">Promoción</label>
                   <select id="promotion" defaultValue="alba">
-                    <option value="alba">Residencial Alba Norte — demo</option>
+                    <option value="alba">Residencial Alba Norte · demo</option>
                   </select>
                 </div>
                 <div className="field">
@@ -101,8 +101,8 @@ export function GuidedDemo() {
                 </div>
               </div>
               <div className="notice">
-                Este caso utiliza una imagen sintética y un resultado
-                determinista. No se envían datos a servicios externos.
+                Estás usando un caso sintético. El análisis es determinista y
+                ninguna imagen sale de este sitio.
               </div>
               <div className="action-row">
                 <button className="primary-button" onClick={() => setStep(1)}>
@@ -120,6 +120,7 @@ export function GuidedDemo() {
               <span>Demo</span>
             </div>
             <div className="panel-body">
+              <IncidentVisual variant="context" label="VISTA GENERAL" />
               <ul className="plain-list">
                 <li>
                   <strong>ID</strong>
@@ -150,8 +151,10 @@ export function GuidedDemo() {
         <div className="workspace-grid">
           <div className="workspace-panel">
             <div className="panel-header">
-              <h2>Sugerencia de IA — pendiente de validación técnica</h2>
-              <span className="status-pill aqua">Confianza 82 %</span>
+              <h2>Sugerencia de IA · pendiente de validación técnica</h2>
+              <span className="status-pill aqua">
+                Evidencia suficiente para revisar
+              </span>
             </div>
             <div className="panel-body">
               <div className="analysis-grid">
@@ -195,8 +198,8 @@ export function GuidedDemo() {
                 </div>
               </div>
               <div className="notice">
-                El análisis se limita a la información visible y no constituye
-                un diagnóstico técnico certificado.
+                La IA describe lo visible y organiza el caso. No diagnostica el
+                comportamiento de la ventana ni certifica una reparación.
               </div>
               {evidenceRequested && (
                 <div className="notice aqua" role="status">
@@ -232,7 +235,7 @@ export function GuidedDemo() {
                 ))}
               </ul>
               <p className="hero-microcopy">
-                Cada campo puede editarse antes de validar.
+                Puedes corregir cada campo antes de validar.
               </p>
             </div>
           </aside>
@@ -249,20 +252,14 @@ export function GuidedDemo() {
           </div>
           <div className="panel-body">
             <article className="duplicate-card">
-              <div
-                className="duplicate-score"
-                aria-label="Similitud del 86 por ciento"
-              >
-                86 %
-              </div>
+              <div className="duplicate-score">Coincidencia alta</div>
               <p className="eyebrow">Candidato · INC-0187</p>
               <h3>Ventana de salón · Bloque B · 2.º A</h3>
               <p>Estado: cerrada tras verificación · 20 JUN 2026</p>
               <ul className="reason-list">
-                <li>Mismo sistema de ventana y promoción.</li>
-                <li>Descripción semejante de corriente de aire.</li>
-                <li>Evidencia visual en la esquina inferior.</li>
-                <li>Mismo proveedor; casos separados por 12 días.</li>
+                {analysis.possibleDuplicate?.reasons.map((reason) => (
+                  <li key={reason}>{reason}.</li>
+                ))}
               </ul>
               <div className="notice aqua">
                 Parecen relacionadas, pero afectan a viviendas distintas. La
@@ -308,8 +305,19 @@ export function GuidedDemo() {
                   <strong>Verificación técnica</strong>
                 </div>
               </div>
+              <div className="evidence-inline">
+                <IncidentVisual variant="repair" />
+                <div>
+                  <p className="eyebrow">Evidencia del proveedor</p>
+                  <h3>La actuación está documentada, no certificada.</h3>
+                  <p>
+                    La imagen muestra la aplicación del sellado. La validación
+                    técnica debe comprobar el resultado y el contexto completo.
+                  </p>
+                </div>
+              </div>
               <div className="notice">
-                El proveedor ha cargado fotografías “antes/después”. La IA
+                El proveedor ha cargado fotografías de antes y después. La IA
                 detecta que la primera entrega no muestra el perímetro completo
                 y bloquea el avance documental.
               </div>
@@ -356,14 +364,14 @@ export function GuidedDemo() {
           </div>
           <div className="panel-body">
             <div className="analysis-grid">
-              <IncidentVisual label="ANTES · 02 JUL" />
-              <IncidentVisual repaired label="DESPUÉS · 08 JUL" />
+              <IncidentVisual variant="before" label="ANTES · 02 JUL" />
+              <IncidentVisual variant="after" label="DESPUÉS · 08 JUL" />
             </div>
             {!technicalApproval ? (
               <>
                 <div className="notice aqua">
                   Documentación aparentemente completa: vista general, detalles
-                  y referencia. La junta visible parece continua; el
+                  y referencia. La junta visible parece continua. El
                   comportamiento del elemento requiere criterio técnico.
                 </div>
                 <button

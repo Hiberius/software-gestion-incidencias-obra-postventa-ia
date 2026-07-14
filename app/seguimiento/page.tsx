@@ -6,6 +6,7 @@ import {
   MessageSquareText,
   UserRoundCheck,
 } from "lucide-react";
+import { IncidentVisual } from "@/components/incident-visual";
 import { timeline } from "@/lib/demo-data";
 
 export default function TrackingPage() {
@@ -14,12 +15,11 @@ export default function TrackingPage() {
       <header className="page-intro">
         <div>
           <p className="eyebrow">Seguimiento · INC-0241</p>
-          <h1>Cada decisión deja una huella.</h1>
+          <h1>Todo el caso, en un solo historial.</h1>
         </div>
         <p className="page-intro-copy">
-          Un historial único para calidad, postventa y proveedor. Estados,
-          responsables, SLA, mensajes y evidencias permanecen vinculados al
-          caso.
+          Calidad, postventa y proveedor ven qué ocurrió, quién decidió y qué
+          falta. Sin reconstruir el contexto entre mensajes sueltos.
         </p>
       </header>
 
@@ -30,10 +30,25 @@ export default function TrackingPage() {
             <span className="status-pill aqua">Cerrada · trazable</span>
           </div>
           <div className="panel-body">
+            <div className="case-evidence-row">
+              <IncidentVisual variant="before" />
+              <div className="case-summary">
+                <p className="eyebrow">Resumen del caso</p>
+                <h3>Corriente de aire junto a la ventana del salón</h3>
+                <p>
+                  La señal se validó como incidencia de carpintería exterior.
+                  Una primera reparación se reabrió y la segunda quedó cerrada
+                  tras comprobación técnica y conformidad.
+                </p>
+                <span className="status-pill aqua">
+                  13 eventos · 12 evidencias
+                </span>
+              </div>
+            </div>
             <div className="analysis-grid">
               <div className="analysis-item">
                 <span>Promoción</span>
-                <strong>Residencial Alba Norte — demo</strong>
+                <strong>Residencial Alba Norte · demo</strong>
               </div>
               <div className="analysis-item">
                 <span>Ubicación</span>
@@ -64,9 +79,7 @@ export default function TrackingPage() {
                 <FileCheck2 size={22} />
                 <div>
                   <h3>12 evidencias</h3>
-                  <p>
-                    Fotografías, referencias y dos paquetes de verificación.
-                  </p>
+                  <p>Fotografías, referencias y dos ciclos de verificación.</p>
                 </div>
               </article>
               <article className="feature-row">

@@ -38,12 +38,11 @@ export default function ImpactPage() {
       <header className="page-intro">
         <div>
           <p className="eyebrow">Impacto medible</p>
-          <h1>Un caso de negocio que se puede discutir.</h1>
+          <h1>Un caso de negocio que muestra sus supuestos.</h1>
         </div>
         <p className="page-intro-copy">
-          Las cifras no se presentan como resultados. El modelo expone todas las
-          hipótesis y separa reducción relativa, puntos porcentuales y adopción
-          del primer año.
+          Cambia las variables y observa el efecto. El modelo separa régimen
+          estable, adopción del primer año y coste del proyecto.
         </p>
       </header>
 
@@ -53,7 +52,7 @@ export default function ImpactPage() {
         <SectionHeading
           eyebrow="Piloto propuesto"
           title="Una promoción. 150 viviendas. 12 semanas."
-          copy="Validar impacto sin sustituir los sistemas existentes, con tres perfiles iniciales: Calidad, Postventa y Proveedor."
+          copy="El piloto mide el proceso antes y después. No atribuye impacto a REPASO AI sin una baseline acordada y una revisión de los casos."
         />
         <div className="pilot-grid">
           {pilot.map((phase) => (
@@ -65,7 +64,7 @@ export default function ImpactPage() {
           ))}
         </div>
         <div className="notice aqua" style={{ marginTop: 24 }}>
-          Metas de evaluación, no resultados prometidos: −50 %
+          Objetivos de evaluación, no resultados prometidos: −50 %
           registro/clasificación · −20 % incidencias incompletas · −15 %
           asignación · −10 % relativo en reaperturas · 100 % cierres trazables.
         </div>

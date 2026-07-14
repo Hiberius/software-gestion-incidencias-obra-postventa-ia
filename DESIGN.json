@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-14T11:45:00Z",
+  "title": "Design System: REPASO AI",
+  "extensions": {
+    "colorMeta": {
+      "worksite-ink": {
+        "role": "primary",
+        "displayName": "Tinta de Obra",
+        "canonical": "oklch(20.92% 0.0294 223.57)",
+        "tonalRamp": [
+          "oklch(15% 0.0294 223.57)",
+          "oklch(25% 0.0294 223.57)",
+          "oklch(35% 0.0294 223.57)",
+          "oklch(47% 0.0294 223.57)",
+          "oklch(59% 0.0294 223.57)",
+          "oklch(71% 0.0294 223.57)",
+          "oklch(83% 0.0294 223.57)",
+          "oklch(95% 0.0294 223.57)"
+        ]
+      },
+      "control-ink": {
+        "role": "primary",
+        "displayName": "Tinta de Control",
+        "canonical": "oklch(26.85% 0.0350 220.61)",
+        "tonalRamp": [
+          "oklch(15% 0.0350 220.61)",
+          "oklch(25% 0.0350 220.61)",
+          "oklch(35% 0.0350 220.61)",
+          "oklch(47% 0.0350 220.61)",
+          "oklch(59% 0.0350 220.61)",
+          "oklch(71% 0.0350 220.61)",
+          "oklch(83% 0.0350 220.61)",
+          "oklch(95% 0.0350 220.61)"
+        ]
+      },
+      "plan-paper": {
+        "role": "neutral",
+        "displayName": "Papel de Plano",
+        "canonical": "oklch(95.45% 0.0108 95.17)",
+        "tonalRamp": [
+          "oklch(15% 0.0108 95.17)",
+          "oklch(25% 0.0108 95.17)",
+          "oklch(35% 0.0108 95.17)",
+          "oklch(47% 0.0108 95.17)",
+          "oklch(59% 0.0108 95.17)",
+          "oklch(71% 0.0108 95.17)",
+          "oklch(83% 0.0108 95.17)",
+          "oklch(95% 0.0108 95.17)"
+        ]
+      },
+      "plan-paper-deep": {
+        "role": "neutral",
+        "displayName": "Papel de Plano Profundo",
+        "canonical": "oklch(91.85% 0.0138 92.99)",
+        "tonalRamp": [
+          "oklch(15% 0.0138 92.99)",
+          "oklch(25% 0.0138 92.99)",
+          "oklch(35% 0.0138 92.99)",
+          "oklch(47% 0.0138 92.99)",
+          "oklch(59% 0.0138 92.99)",
+          "oklch(71% 0.0138 92.99)",
+          "oklch(83% 0.0138 92.99)",
+          "oklch(95% 0.0138 92.99)"
+        ]
+      },
+      "evidence-white": {
+        "role": "neutral",
+        "displayName": "Blanco de Evidencia",
+        "canonical": "oklch(98.75% 0.0067 97.35)",
+        "tonalRamp": [
+          "oklch(15% 0.0067 97.35)",
+          "oklch(25% 0.0067 97.35)",
+          "oklch(35% 0.0067 97.35)",
+          "oklch(47% 0.0067 97.35)",
+          "oklch(59% 0.0067 97.35)",
+          "oklch(71% 0.0067 97.35)",
+          "oklch(83% 0.0067 97.35)",
+          "oklch(95% 0.0067 97.35)"
+        ]
+      },
+      "muted-slate": {
+        "role": "neutral",
+        "displayName": "Pizarra Silenciosa",
+        "canonical": "oklch(49.65% 0.0147 196.69)",
+        "tonalRamp": [
+          "oklch(15% 0.0147 196.69)",
+          "oklch(25% 0.0147 196.69)",
+          "oklch(35% 0.0147 196.69)",
+          "oklch(47% 0.0147 196.69)",
+          "oklch(59% 0.0147 196.69)",
+          "oklch(71% 0.0147 196.69)",
+          "oklch(83% 0.0147 196.69)",
+          "oklch(95% 0.0147 196.69)"
+        ]
+      },
+      "verified-teal": {
+        "role": "secondary",
+        "displayName": "Sello Verificado",
+        "canonical": "oklch(79.06% 0.1267 179.51)",
+        "tonalRamp": [
+          "oklch(15% 0.1267 179.51)",
+          "oklch(25% 0.1267 179.51)",
+          "oklch(35% 0.1267 179.51)",
+          "oklch(47% 0.1267 179.51)",
+          "oklch(59% 0.1267 179.51)",
+          "oklch(71% 0.1267 179.51)",
+          "oklch(83% 0.1267 179.51)",
+          "oklch(95% 0.1267 179.51)"
+        ]
+      },
+      "verified-teal-deep": {
+        "role": "secondary",
+        "displayName": "Sello Verificado Profundo",
+        "canonical": "oklch(47.25% 0.0864 176.43)",
+        "tonalRamp": [
+          "oklch(15% 0.0864 176.43)",
+          "oklch(25% 0.0864 176.43)",
+          "oklch(35% 0.0864 176.43)",
+          "oklch(47% 0.0864 176.43)",
+          "oklch(59% 0.0864 176.43)",
+          "oklch(71% 0.0864 176.43)",
+          "oklch(83% 0.0864 176.43)",
+          "oklch(95% 0.0864 176.43)"
+        ]
+      },
+      "review-amber": {
+        "role": "tertiary",
+        "displayName": "Ámbar de Revisión",
+        "canonical": "oklch(79.26% 0.1062 71.67)",
+        "tonalRamp": [
+          "oklch(15% 0.1062 71.67)",
+          "oklch(25% 0.1062 71.67)",
+          "oklch(35% 0.1062 71.67)",
+          "oklch(47% 0.1062 71.67)",
+          "oklch(59% 0.1062 71.67)",
+          "oklch(71% 0.1062 71.67)",
+          "oklch(83% 0.1062 71.67)",
+          "oklch(95% 0.1062 71.67)"
+        ]
+      },
+      "risk-coral": {
+        "role": "tertiary",
+        "displayName": "Coral de Riesgo",
+        "canonical": "oklch(66.40% 0.1292 29.18)",
+        "tonalRamp": [
+          "oklch(15% 0.1292 29.18)",
+          "oklch(25% 0.1292 29.18)",
+          "oklch(35% 0.1292 29.18)",
+          "oklch(47% 0.1292 29.18)",
+          "oklch(59% 0.1292 29.18)",
+          "oklch(71% 0.1292 29.18)",
+          "oklch(83% 0.1292 29.18)",
+          "oklch(95% 0.1292 29.18)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial Display",
+        "purpose": "Una tesis principal por página."
+      },
+      "headline": {
+        "displayName": "Chapter Headline",
+        "purpose": "Cambios de capítulo y resultados decisivos."
+      },
+      "title": {
+        "displayName": "Operational Title",
+        "purpose": "Paneles, decisiones y acciones."
+      },
+      "body": {
+        "displayName": "Evidence Body",
+        "purpose": "Explicación, formularios y evidencia."
+      },
+      "label": {
+        "displayName": "Audit Label",
+        "purpose": "Estados, metadatos y navegación auxiliar."
+      }
+    },
+    "shadows": [
+      {
+        "name": "evidence-lift",
+        "value": "0 24px 70px oklch(20.92% 0.0294 223.57 / 0.12)",
+        "purpose": "Una sola pieza de evidencia protagonista o panel activo."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "160ms ease-out",
+        "purpose": "Hover, focus y confirmación inmediata."
+      },
+      {
+        "name": "state-standard",
+        "value": "220ms ease-out",
+        "purpose": "Progreso y cambio de estado."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "540px"
+      },
+      {
+        "name": "mobile",
+        "value": "820px"
+      },
+      {
+        "name": "workspace",
+        "value": "1120px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal única dentro de cada contexto.",
+      "html": "<button class=\"ds-btn-primary\">CONTINUAR</button>",
+      "css": ".ds-btn-primary { min-height: 48px; border: 0; border-radius: 0; padding: 12px 18px; background: var(--ink, oklch(20.92% 0.0294 223.57)); color: var(--paper, oklch(95.45% 0.0108 95.17)); font: 780 11px/1.35 Manrope, sans-serif; letter-spacing: .08em; cursor: pointer; transition: background 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; } .ds-btn-primary:hover { background: var(--aqua, oklch(79.06% 0.1267 179.51)); color: var(--ink, oklch(20.92% 0.0294 223.57)); transform: translateY(-2px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 3px solid var(--aqua, oklch(79.06% 0.1267 179.51)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción alternativa sin competir con la decisión principal.",
+      "html": "<button class=\"ds-btn-secondary\">REVISAR EVIDENCIA</button>",
+      "css": ".ds-btn-secondary { min-height: 48px; border: 1px solid var(--ink, oklch(20.92% 0.0294 223.57)); border-radius: 0; padding: 12px 18px; background: transparent; color: var(--ink, oklch(20.92% 0.0294 223.57)); font: 780 11px/1.35 Manrope, sans-serif; letter-spacing: .06em; cursor: pointer; transition: background 160ms ease-out, color 160ms ease-out; } .ds-btn-secondary:hover { background: var(--ink, oklch(20.92% 0.0294 223.57)); color: var(--paper, oklch(95.45% 0.0108 95.17)); } .ds-btn-secondary:active { background: var(--ink-2, oklch(26.85% 0.0350 220.61)); } .ds-btn-secondary:focus-visible { outline: 3px solid var(--aqua, oklch(79.06% 0.1267 179.51)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Evidence Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Campo documental de alta legibilidad y foco explícito.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-location\">UBICACIÓN</label><input class=\"ds-field\" id=\"ds-location\" value=\"Bloque B · 3.º B · Salón\">",
+      "css": ".ds-field-label { display: block; margin-bottom: 6px; color: var(--muted, oklch(49.65% 0.0147 196.69)); font: 780 10px/1.35 Manrope, sans-serif; letter-spacing: .11em; } .ds-field { width: 100%; min-height: 44px; border: 1px solid oklch(20.92% 0.0294 223.57 / .16); border-radius: 0; padding: 10px 12px; background: var(--white, oklch(98.75% 0.0067 97.35)); color: var(--ink, oklch(20.92% 0.0294 223.57)); font: 450 15px/1.5 Manrope, sans-serif; transition: border-color 160ms ease-out, outline-color 160ms ease-out; } .ds-field:hover { border-color: oklch(20.92% 0.0294 223.57 / .42); } .ds-field:focus { border-color: var(--aqua-dark, oklch(47.25% 0.0864 176.43)); outline: 3px solid oklch(79.06% 0.1267 179.51 / .28); outline-offset: 0; }"
+    },
+    {
+      "name": "Verified Status",
+      "kind": "chip",
+      "refersTo": "status-verified",
+      "description": "Estado compacto para progreso confirmado por una persona.",
+      "html": "<span class=\"ds-status-verified\">VALIDACIÓN TÉCNICA · REGISTRADA</span>",
+      "css": ".ds-status-verified { display: inline-flex; align-items: center; min-height: 28px; border: 1px solid var(--aqua-dark, oklch(47.25% 0.0864 176.43)); border-radius: 2px; padding: 6px 8px; background: oklch(79.06% 0.1267 179.51 / .14); color: var(--aqua-dark, oklch(47.25% 0.0864 176.43)); font: 780 10px/1.35 Manrope, sans-serif; letter-spacing: .06em; } .ds-status-verified:hover { background: oklch(79.06% 0.1267 179.51 / .2); } .ds-status-verified:focus-visible { outline: 3px solid var(--aqua, oklch(79.06% 0.1267 179.51)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Evidence Panel",
+      "kind": "card",
+      "refersTo": "evidence-panel",
+      "description": "Documento o fotografía protagonista con contexto auditable.",
+      "html": "<article class=\"ds-evidence\"><div class=\"ds-evidence-meta\"><span>ANTES · 02 JUL</span><span>IMG-DEMO-0241</span></div><div class=\"ds-evidence-frame\">EVIDENCIA SINTÉTICA</div><p>Residencial Alba Norte · 3.º B · Salón</p></article>",
+      "css": ".ds-evidence { border: 1px solid oklch(20.92% 0.0294 223.57 / .16); border-radius: 2px; padding: 0; overflow: hidden; background: var(--white, oklch(98.75% 0.0067 97.35)); color: var(--ink, oklch(20.92% 0.0294 223.57)); transition: box-shadow 220ms ease-out, transform 220ms ease-out; } .ds-evidence:hover { box-shadow: 0 24px 70px oklch(20.92% 0.0294 223.57 / .12); transform: translateY(-2px); } .ds-evidence:focus-within { outline: 3px solid var(--aqua, oklch(79.06% 0.1267 179.51)); outline-offset: 3px; } .ds-evidence-meta { display: flex; justify-content: space-between; padding: 10px 14px; background: var(--ink, oklch(20.92% 0.0294 223.57)); color: var(--paper, oklch(95.45% 0.0108 95.17)); font: 780 10px/1.35 Manrope, sans-serif; letter-spacing: .08em; } .ds-evidence-frame { min-height: 180px; display: grid; place-items: center; background: var(--paper-2, oklch(91.85% 0.0138 92.99)); color: var(--muted, oklch(49.65% 0.0147 196.69)); font: 780 11px/1.35 Manrope, sans-serif; letter-spacing: .08em; } .ds-evidence p { margin: 0; padding: 14px; font: 450 13px/1.5 Manrope, sans-serif; }"
+    },
+    {
+      "name": "Chapter Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Navegación compacta por capítulos del circuito cerrado.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-active\" href=\"#\">INCIDENCIA</a><a class=\"ds-nav-link\" href=\"#\">VERIFICACIÓN</a><a class=\"ds-nav-link\" href=\"#\">IMPACTO</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid oklch(20.92% 0.0294 223.57 / .16); background: var(--paper, oklch(95.45% 0.0108 95.17)); } .ds-nav-link { position: relative; padding: 14px 12px; color: var(--muted, oklch(49.65% 0.0147 196.69)); font: 720 11px/1.35 Manrope, sans-serif; letter-spacing: .05em; text-decoration: none; transition: color 160ms ease-out, background 160ms ease-out; } .ds-nav-link:hover { color: var(--ink, oklch(20.92% 0.0294 223.57)); background: oklch(98.75% 0.0067 97.35 / .65); } .ds-nav-link.ds-active { color: var(--ink, oklch(20.92% 0.0294 223.57)); } .ds-nav-link.ds-active::after { content: ''; position: absolute; right: 12px; bottom: -1px; left: 12px; height: 1px; background: var(--aqua-dark, oklch(47.25% 0.0864 176.43)); } .ds-nav-link:focus-visible { outline: 3px solid var(--aqua, oklch(79.06% 0.1267 179.51)); outline-offset: -3px; }"
+    },
+    {
+      "name": "Audit Metric Row",
+      "kind": "custom",
+      "refersTo": "metric-row",
+      "description": "Métrica comparable con etiqueta y procedencia explícita.",
+      "html": "<div class=\"ds-metric-row\"><span>CIERRES CON EVIDENCIA</span><strong>100 %</strong><small>Objetivo de piloto</small></div>",
+      "css": ".ds-metric-row { display: grid; grid-template-columns: minmax(160px, 1fr) auto minmax(140px, .55fr); gap: 18px; align-items: baseline; border-bottom: 1px solid oklch(20.92% 0.0294 223.57 / .16); padding: 16px 0; color: var(--ink, oklch(20.92% 0.0294 223.57)); transition: background 160ms ease-out; } .ds-metric-row:hover { background: oklch(79.06% 0.1267 179.51 / .08); } .ds-metric-row span { font: 760 11px/1.35 Manrope, sans-serif; letter-spacing: .07em; } .ds-metric-row strong { font: 400 30px/1 DM Serif Display, serif; } .ds-metric-row small { color: var(--muted, oklch(49.65% 0.0147 196.69)); font: 450 12px/1.45 Manrope, sans-serif; }"
+    },
+    {
+      "name": "Review Notice",
+      "kind": "custom",
+      "refersTo": "notice-review",
+      "description": "Aviso de abstención o requisito pendiente sin franja lateral.",
+      "html": "<div class=\"ds-notice\"><strong>EVIDENCIA INCOMPLETA</strong><p>Añade una vista general y ambos extremos antes de solicitar validación.</p></div>",
+      "css": ".ds-notice { border: 1px solid oklch(79.26% 0.1062 71.67 / .55); border-radius: 2px; padding: 14px 16px; background: oklch(79.26% 0.1062 71.67 / .1); color: var(--ink, oklch(20.92% 0.0294 223.57)); transition: background 160ms ease-out, border-color 160ms ease-out; } .ds-notice:hover { border-color: var(--amber, oklch(79.26% 0.1062 71.67)); background: oklch(79.26% 0.1062 71.67 / .15); } .ds-notice:focus-within { outline: 3px solid var(--amber, oklch(79.26% 0.1062 71.67)); outline-offset: 3px; } .ds-notice strong { display: block; margin-bottom: 6px; font: 780 10px/1.35 Manrope, sans-serif; letter-spacing: .08em; } .ds-notice p { margin: 0; font: 450 13px/1.55 Manrope, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Mesa de Evidencias",
+    "overview": "REPASO AI debe sentirse como la mesa de trabajo de un responsable de calidad: fotografías, planos, muestras, decisiones y firmas conectadas en una secuencia comprensible. La interfaz combina la disciplina de producto de Linear, la claridad explicativa de Stripe y la sensibilidad arquitectónica de Arquitectura Viva, pero conserva una identidad propia y operativa.\n\nEl sistema es product-first. La landing presenta la tesis; la demo y las superficies operativas la prueban. La jerarquía separa siempre señal, sugerencia de IA, decisión humana y resultado verificado. La densidad puede ser alta, pero nunca confusa. El detalle aparece progresivamente y cada elemento visual debe explicar, evidenciar o permitir una acción.",
+    "keyCharacteristics": [
+      "Autoridad tranquila y precisión técnica.",
+      "Papel cálido para el relato y tinta profunda para el control operativo.",
+      "Fotografías documentales como evidencia, nunca como decoración.",
+      "Composición editorial asimétrica con ritmo arquitectónico.",
+      "Estados humanos e IA claramente diferenciados.",
+      "Movimiento responsive, breve y completamente prescindible."
+    ],
+    "rules": [
+      {
+        "name": "The Verified Seal Rule",
+        "body": "Sello Verificado ocupa como máximo el 12 % de una pantalla y solo marca progreso confirmado, foco o acción primaria.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Gradient Rule",
+        "body": "Los gradientes están prohibidos. La profundidad procede del contraste tonal, la escala, la fotografía y la superposición física justificada.",
+        "section": "colors"
+      },
+      {
+        "name": "The Human State Rule",
+        "body": "Ningún estado depende solo del color. Icono, verbo y responsable acompañan siempre a la señal cromática.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Serif Claim Rule",
+        "body": "La serif se reserva a tesis, capítulos y cifras decisivas. Controles, estados y datos operativos permanecen en Manrope.",
+        "section": "typography"
+      },
+      {
+        "name": "The Plain Spanish Rule",
+        "body": "Cada término técnico debe apoyarse en una frase sencilla que explique qué ocurre, quién decide y qué falta.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "Si más de un elemento del mismo grupo tiene sombra, la jerarquía ha fallado. Retira las sombras y corrige estructura, contraste o espacio.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One-Pixel Edge Rule",
+        "body": "Los bordes estructurales son de un píxel. Las franjas laterales de color superiores a un píxel están prohibidas.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do hacer comprensible la propuesta central en menos de veinte segundos y ofrecer el detalle por capas.",
+      "Do mostrar fotografías documentales, identificadas como sintéticas, con contexto suficiente para entender el caso.",
+      "Do separar visualmente sugerencia de IA, revisión técnica, conformidad y cierre.",
+      "Do etiquetar cada cifra como dato sintético, objetivo de piloto, supuesto editable o fuente pública.",
+      "Do utilizar Sello Verificado únicamente para foco, progreso confirmado y acciones principales.",
+      "Do mantener WCAG 2.2 AA, objetivos táctiles adecuados, navegación por teclado y estados comprensibles sin color.",
+      "Do usar iconos Lucide solo cuando aclaren una acción o un estado y mantener una geometría coherente."
+    ],
+    "donts": [
+      "Don't usar plantillas SaaS genéricas con una sucesión de tarjetas idénticas.",
+      "Don't usar gradientes “AI”, estética cyberpunk, neón o glassmorphism.",
+      "Don't usar fotografías corporativas de stock con personas sonriendo a cámara.",
+      "Don't usar dashboards flotantes como decoración sin relación operativa.",
+      "Don't imitar el sitio o la identidad visual de Metrovacesa.",
+      "Don't crear una interfaz de hackathon que exagere automatización, precisión o capacidades no implementadas.",
+      "Don't usar gradientes, texto con degradado, fondos acrílicos o transparencias decorativas.",
+      "Don't usar bordes laterales de color superiores a 1px.",
+      "Don't presentar porcentajes de confianza como precisión del modelo ni resultados simulados como impacto conseguido.",
+      "Don't utilizar títulos gigantes que ocupen casi toda la pantalla o escondan la evidencia principal."
+    ]
+  }
+}
