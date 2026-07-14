@@ -24,13 +24,61 @@ const progress = [
   "Cierre",
 ];
 
+const categoryOptions = [
+  "Carpintería exterior",
+  "Humedad y filtraciones",
+  "Pintura y acabados",
+  "Revestimientos",
+  "Fontanería y saneamiento",
+  "Electricidad",
+  "Climatización",
+  "Por determinar",
+];
+
+const elementOptions = [
+  "Encuentro entre marco de ventana y paramento",
+  "Junta entre marco y paramento",
+  "Hoja, herrajes y cierre",
+  "Vidrio y junta de acristalamiento",
+  "Umbral y vierteaguas",
+  "Paramento interior",
+  "Por confirmar",
+];
+
+const tradeOptions = [
+  "Carpintería de aluminio y sellados",
+  "Impermeabilización",
+  "Albañilería",
+  "Pintura",
+  "Revestimientos",
+  "Instalaciones",
+  "Por asignar",
+];
+
 export function GuidedDemo() {
+  const analysis = getDemoAnalysis("window-seal-detail");
   const [step, setStep] = useState(0);
   const [technicalApproval, setTechnicalApproval] = useState(false);
   const [customerConformity, setCustomerConformity] = useState(false);
-  const [evidenceRequested, setEvidenceRequested] = useState(false);
+  const [requestedEvidence, setRequestedEvidence] = useState<string[]>([]);
+  const [selectedEvidence, setSelectedEvidence] = useState<string[]>(() =>
+    analysis.additionalEvidenceNeeded.slice(),
+  );
+  const [analysisDraft, setAnalysisDraft] = useState<{
+    summary: string;
+    category: string;
+    constructionElement: string;
+    probableTrade: string;
+    severity: string;
+  }>(() => ({
+    summary: analysis.summary,
+    category: analysis.category,
+    constructionElement: analysis.constructionElement,
+    probableTrade: analysis.probableTrade,
+    severity: analysis.severity,
+  }));
   const demoRef = useRef<HTMLElement>(null);
-  const analysis = getDemoAnalysis("window-seal-detail");
+  const evidenceRequested = requestedEvidence.length > 0;
 
   useEffect(() => {
     if (step === 0) return;
@@ -56,7 +104,12 @@ export function GuidedDemo() {
       aria-label={`Paso ${Math.min(step + 1, 6)} de 6: ${progress[Math.min(step, 5)]}`}
       aria-live="polite"
     >
-      <div className="demo-progress" aria-label="Progreso de la demostración">
+      <div
+        className="demo-progress"
+        role="region"
+        tabIndex={0}
+        aria-label="Progreso de la demostración"
+      >
         {progress.map((label, index) => (
           <div
             key={label}
@@ -159,43 +212,117 @@ export function GuidedDemo() {
             <div className="panel-body">
               <div className="analysis-grid">
                 <div className="analysis-item wide">
-                  <span>Resumen editable</span>
-                  <p>{analysis.summary}</p>
+                  <label htmlFor="analysis-summary">Resumen editable</label>
+                  <textarea
+                    id="analysis-summary"
+                    value={analysisDraft.summary}
+                    onChange={(event) =>
+                      setAnalysisDraft((current) => ({
+                        ...current,
+                        summary: event.target.value,
+                      }))
+                    }
+                  />
                 </div>
                 <div className="analysis-item">
-                  <span>Categoría</span>
+                  <label htmlFor="analysis-category">Categoría</label>
                   <select
+                    id="analysis-category"
                     aria-label="Categoría sugerida"
-                    defaultValue={analysis.category}
+                    value={analysisDraft.category}
+                    onChange={(event) =>
+                      setAnalysisDraft((current) => ({
+                        ...current,
+                        category: event.target.value,
+                      }))
+                    }
                   >
-                    <option>{analysis.category}</option>
-                    <option>Humedad</option>
-                    <option>Pintura y acabados</option>
+                    {categoryOptions.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="analysis-item">
-                  <span>Elemento</span>
-                  <strong>{analysis.constructionElement}</strong>
-                </div>
-                <div className="analysis-item">
-                  <span>Gremio probable</span>
-                  <strong>{analysis.probableTrade}</strong>
-                </div>
-                <div className="analysis-item">
-                  <span>Severidad sugerida</span>
+                  <label htmlFor="analysis-element">Elemento</label>
                   <select
-                    aria-label="Severidad sugerida"
-                    defaultValue={analysis.severity}
+                    id="analysis-element"
+                    aria-label="Elemento constructivo"
+                    value={analysisDraft.constructionElement}
+                    onChange={(event) =>
+                      setAnalysisDraft((current) => ({
+                        ...current,
+                        constructionElement: event.target.value,
+                      }))
+                    }
                   >
-                    <option>Media</option>
-                    <option>Baja</option>
-                    <option>Alta</option>
+                    {elementOptions.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
                   </select>
                 </div>
-                <div className="analysis-item wide">
-                  <span>Evidencia adicional necesaria</span>
-                  <p>{analysis.additionalEvidenceNeeded.join(" · ")}</p>
+                <div className="analysis-item">
+                  <label htmlFor="analysis-trade">Gremio probable</label>
+                  <select
+                    id="analysis-trade"
+                    aria-label="Gremio probable"
+                    value={analysisDraft.probableTrade}
+                    onChange={(event) =>
+                      setAnalysisDraft((current) => ({
+                        ...current,
+                        probableTrade: event.target.value,
+                      }))
+                    }
+                  >
+                    {tradeOptions.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
+                  </select>
                 </div>
+                <div className="analysis-item">
+                  <label htmlFor="analysis-severity">Severidad sugerida</label>
+                  <select
+                    id="analysis-severity"
+                    aria-label="Severidad sugerida"
+                    value={analysisDraft.severity}
+                    onChange={(event) =>
+                      setAnalysisDraft((current) => ({
+                        ...current,
+                        severity: event.target.value,
+                      }))
+                    }
+                  >
+                    <option>Baja</option>
+                    <option>Media</option>
+                    <option>Alta</option>
+                    <option>Por determinar</option>
+                  </select>
+                </div>
+                <fieldset className="analysis-item wide evidence-selector">
+                  <legend>Comprobaciones recomendadas</legend>
+                  <p id="evidence-help">
+                    Suficiente para revisar, no para cerrar. Selecciona qué
+                    pedir antes de la verificación.
+                  </p>
+                  <div className="evidence-options">
+                    {analysis.additionalEvidenceNeeded.map((item) => (
+                      <label className="evidence-option" key={item}>
+                        <input
+                          type="checkbox"
+                          checked={selectedEvidence.includes(item)}
+                          disabled={evidenceRequested}
+                          onChange={(event) =>
+                            setSelectedEvidence((current) =>
+                              event.target.checked
+                                ? [...current, item]
+                                : current.filter((value) => value !== item),
+                            )
+                          }
+                        />
+                        <span>{item}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
               </div>
               <div className="notice">
                 La IA describe lo visible y organiza el caso. No diagnostica el
@@ -203,8 +330,7 @@ export function GuidedDemo() {
               </div>
               {evidenceRequested && (
                 <div className="notice aqua" role="status">
-                  Solicitud registrada: vista general, referencia del sistema y
-                  comprobación presencial.
+                  Solicitud registrada: {requestedEvidence.join(" · ")}.
                 </div>
               )}
               <div className="action-row">
@@ -213,12 +339,12 @@ export function GuidedDemo() {
                 </button>
                 <button
                   className="secondary-button"
-                  onClick={() => setEvidenceRequested(true)}
-                  disabled={evidenceRequested}
+                  onClick={() => setRequestedEvidence(selectedEvidence)}
+                  disabled={evidenceRequested || selectedEvidence.length === 0}
                 >
                   {evidenceRequested
                     ? "Evidencia solicitada"
-                    : "Solicitar evidencia"}
+                    : `Solicitar evidencia (${selectedEvidence.length})`}
                 </button>
               </div>
             </div>

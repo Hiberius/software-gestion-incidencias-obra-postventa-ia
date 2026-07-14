@@ -66,6 +66,42 @@ export const HIGH_ROI_INPUTS: ROIInputs = {
   repeatVisitReduction: 0.1,
 };
 
+export type ROIScenarioKey = "conservative" | "prudent" | "adoption";
+
+export const ROI_SCENARIOS: Record<
+  ROIScenarioKey,
+  { label: string; disclosure: string; inputs: ROIInputs }
+> = {
+  conservative: {
+    label: "Conservador",
+    disclosure: "Supuesto ilustrativo con ahorro y adopción reducidos.",
+    inputs: {
+      ...PRUDENT_ROI_INPUTS,
+      adminMinutesSaved: 5,
+      repeatVisitReduction: 0.05,
+      firstYearCost: 90_000,
+      firstYearRealization: 0.45,
+    },
+  },
+  prudent: {
+    label: "Prudente",
+    disclosure: "Supuesto ilustrativo de referencia para la demo.",
+    inputs: PRUDENT_ROI_INPUTS,
+  },
+  adoption: {
+    label: "Adopción alta",
+    disclosure:
+      "Supuesto ilustrativo, no previsión, con mayor adopción y ahorro operativo.",
+    inputs: {
+      ...PRUDENT_ROI_INPUTS,
+      adminMinutesSaved: 10,
+      repeatVisitReduction: 0.15,
+      firstYearCost: 70_000,
+      firstYearRealization: 0.85,
+    },
+  },
+};
+
 export function calculateROI(rawInputs: ROIInputs): ROIResult {
   const parsed = roiInputSchema.safeParse(rawInputs);
 

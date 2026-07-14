@@ -16,6 +16,9 @@ test("a visitor can complete the evidence-backed guided demo", async ({
     page.getByRole("heading", { name: /Qué funciona hoy/i }),
   ).toBeVisible();
   await expect(
+    page.getByText(/Un gestor de tickets registra una solicitud/i),
+  ).toBeVisible();
+  await expect(
     page.getByRole("img", { name: /responsable de calidad revisa/i }),
   ).toBeVisible();
 
@@ -32,6 +35,21 @@ test("a visitor can complete the evidence-backed guided demo", async ({
   await expect(
     page.getByText("Evidencia suficiente para revisar"),
   ).toBeVisible();
+  await expect(
+    page.getByText("Suficiente para revisar, no para cerrar"),
+  ).toBeVisible();
+  await page
+    .getByLabel("Resumen editable")
+    .fill("Discontinuidad visible pendiente de comprobación presencial.");
+  await page
+    .getByLabel("Categoría sugerida")
+    .selectOption({ label: "Humedad y filtraciones" });
+  await page
+    .getByLabel("Elemento constructivo")
+    .selectOption({ label: "Junta entre marco y paramento" });
+  await page
+    .getByLabel("Gremio probable")
+    .selectOption({ label: "Impermeabilización" });
   await expect(page.getByText(/Confianza \d+ %/)).toHaveCount(0);
 
   await page.getByRole("button", { name: "Validar y continuar" }).click();
@@ -97,4 +115,24 @@ test("portfolio charts render their evidence marks", async ({ page }) => {
   await page.goto("/inteligencia/");
   await expect(page.locator(".recharts-bar-rectangle")).toHaveCount(6);
   await expect(page.locator(".recharts-line-curve")).toHaveCount(2);
+});
+
+test("ROI assumptions and integration paths remain transparent and responsive", async ({
+  page,
+}) => {
+  await page.goto("/impacto/");
+  await page.getByRole("button", { name: "Escenario conservador" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Sensibilidad del primer año" }),
+  ).toBeVisible();
+  await page.getByText("Ver fórmula y trazabilidad").click();
+  await expect(page.getByText(/Ahorro administrativo =/)).toBeVisible();
+  await expect(page.getByText("Piloto inicial", { exact: true })).toBeVisible();
+  await expect(page.getByText("No conectado", { exact: true })).toBeVisible();
+
+  const dimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.content).toBe(dimensions.viewport);
 });

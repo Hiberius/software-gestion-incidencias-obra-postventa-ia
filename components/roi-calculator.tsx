@@ -2,7 +2,13 @@
 
 import { useMemo, useState } from "react";
 import { AlertCircle, ChevronDown } from "lucide-react";
-import { calculateROI, PRUDENT_ROI_INPUTS, type ROIInputs } from "@/lib/roi";
+import {
+  calculateROI,
+  PRUDENT_ROI_INPUTS,
+  ROI_SCENARIOS,
+  type ROIInputs,
+  type ROIScenarioKey,
+} from "@/lib/roi";
 
 const euro = new Intl.NumberFormat("es-ES", {
   style: "currency",
@@ -53,6 +59,9 @@ function NumberField({
 
 export function ROICalculator() {
   const [inputs, setInputs] = useState<ROIInputs>(PRUDENT_ROI_INPUTS);
+  const [activeScenario, setActiveScenario] = useState<
+    ROIScenarioKey | "custom"
+  >("prudent");
   const calculation = useMemo(() => {
     try {
       return { result: calculateROI(inputs), error: null };
@@ -65,8 +74,48 @@ export function ROICalculator() {
     }
   }, [inputs]);
 
+  const sensitivity = useMemo(() => {
+    const shifts = [
+      {
+        label: "−20 pp",
+        value: Math.max(0, inputs.firstYearRealization - 0.2),
+      },
+      { label: "Actual", value: inputs.firstYearRealization },
+      {
+        label: "+20 pp",
+        value: Math.min(1, inputs.firstYearRealization + 0.2),
+      },
+    ];
+
+    return shifts
+      .filter(
+        (item, index, collection) =>
+          collection.findIndex(
+            (candidate) => candidate.value === item.value,
+          ) === index,
+      )
+      .map((item) => {
+        try {
+          const result = calculateROI({
+            ...inputs,
+            firstYearRealization: item.value,
+          });
+          return { ...item, roi: result.firstYearROI };
+        } catch {
+          return null;
+        }
+      })
+      .filter((item): item is NonNullable<typeof item> => item !== null);
+  }, [inputs]);
+
   function updateNumber(key: NumericKey, value: number) {
+    setActiveScenario("custom");
     setInputs((current) => ({ ...current, [key]: value }));
+  }
+
+  function selectScenario(key: ROIScenarioKey) {
+    setActiveScenario(key);
+    setInputs({ ...ROI_SCENARIOS[key].inputs });
   }
 
   const result = calculation.result;
@@ -82,10 +131,38 @@ export function ROICalculator() {
           <button
             className="text-button"
             type="button"
-            onClick={() => setInputs(PRUDENT_ROI_INPUTS)}
+            onClick={() => selectScenario("prudent")}
           >
             Restablecer escenario
           </button>
+        </div>
+
+        <div className="scenario-picker">
+          <p>Escenarios ilustrativos</p>
+          <div role="group" aria-label="Escenarios ilustrativos de ROI">
+            {(
+              Object.entries(ROI_SCENARIOS) as [
+                ROIScenarioKey,
+                (typeof ROI_SCENARIOS)[ROIScenarioKey],
+              ][]
+            ).map(([key, scenario]) => (
+              <button
+                type="button"
+                key={key}
+                aria-label={`Escenario ${scenario.label.toLocaleLowerCase("es-ES")}`}
+                aria-pressed={activeScenario === key}
+                onClick={() => selectScenario(key)}
+              >
+                <strong>{scenario.label}</strong>
+                <span>{scenario.disclosure}</span>
+              </button>
+            ))}
+          </div>
+          {activeScenario === "custom" && (
+            <small>
+              Escenario personalizado: has cambiado uno o más supuestos.
+            </small>
+          )}
         </div>
 
         <div className="form-grid">
@@ -142,13 +219,14 @@ export function ROICalculator() {
               <select
                 id="reductionMode"
                 value={inputs.repeatVisitReductionMode}
-                onChange={(event) =>
+                onChange={(event) => {
+                  setActiveScenario("custom");
                   setInputs((current) => ({
                     ...current,
                     repeatVisitReductionMode: event.target
                       .value as ROIInputs["repeatVisitReductionMode"],
-                  }))
-                }
+                  }));
+                }}
               >
                 <option value="relative">Reducción relativa</option>
                 <option value="percentage_points">Puntos porcentuales</option>
@@ -245,6 +323,66 @@ export function ROICalculator() {
                 </strong>
               </div>
             </div>
+            <section
+              className="roi-sensitivity"
+              aria-labelledby="sensitivity-title"
+            >
+              <div>
+                <h3 id="sensitivity-title">Sensibilidad del primer año</h3>
+                <p>
+                  Solo cambia la adopción efectiva en ±20 puntos porcentuales;
+                  el resto de supuestos permanece igual.
+                </p>
+              </div>
+              <div
+                className="sensitivity-table"
+                role="table"
+                aria-label="Sensibilidad del ROI a la adopción"
+              >
+                {sensitivity.map((item) => (
+                  <div role="row" key={`${item.label}-${item.value}`}>
+                    <span role="cell">{item.label}</span>
+                    <span role="cell">
+                      {number.format(item.value * 100)} % adopción
+                    </span>
+                    <strong role="cell">{number.format(item.roi)} % ROI</strong>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <details className="calculation-details">
+              <summary>Ver fórmula y trazabilidad</summary>
+              <div>
+                <p>
+                  <strong>Ahorro administrativo =</strong> viviendas ×
+                  incidencias/vivienda × minutos ahorrados ÷ 60 × coste/hora.
+                </p>
+                <p>
+                  <strong>Visitas evitadas =</strong> volumen anual × baseline ×
+                  reducción relativa. Si eliges puntos porcentuales, se aplica
+                  la reducción directa sobre el volumen.
+                </p>
+                <p>
+                  <strong>ROI =</strong> (beneficio bruto × adopción − coste del
+                  primer año) ÷ coste del primer año × 100.
+                </p>
+                <dl>
+                  <div>
+                    <dt>Origen</dt>
+                    <dd>
+                      Todos los valores son inputs editables de esta página.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Fuente real requerida</dt>
+                    <dd>
+                      Baseline acordada, tiempos observados y costes validados
+                      durante el piloto.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
             <div className="notice">
               Modelo ilustrativo. No utiliza datos internos ni representa
               resultados garantizados. El piloto debe validar baseline,

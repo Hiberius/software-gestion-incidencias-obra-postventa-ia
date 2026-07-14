@@ -48,26 +48,31 @@ export const supplierScores = [
   {
     criterion: "Calidad",
     score: 78,
+    weight: 30,
     evidence: "14/18 aceptadas sin segunda actuación",
   },
   {
     criterion: "Costes",
     score: 86,
+    weight: 15,
     evidence: "+1,8 % de desviación media simulada",
   },
   {
     criterion: "Plazos",
     score: 83,
+    weight: 20,
     evidence: "15/18 intervenciones dentro de SLA",
   },
   {
     criterion: "Cumplimiento",
     score: 92,
+    weight: 20,
     evidence: "22/24 paquetes documentales completos",
   },
   {
     criterion: "Atención posterior",
     score: 89,
+    weight: 15,
     evidence: "3 h 20 min de respuesta mediana",
   },
 ];

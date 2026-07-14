@@ -5,6 +5,11 @@ import { IncidentVisual } from "@/components/incident-visual";
 import { PreventiveAction } from "@/components/preventive-action";
 import { dashboardMetrics, supplierScores } from "@/lib/demo-data";
 
+const supplierScoreTotal = supplierScores.reduce(
+  (total, item) => total + item.score * (item.weight / 100),
+  0,
+);
+
 export default function IntelligencePage() {
   return (
     <div className="page-shell">
@@ -84,11 +89,16 @@ export default function IntelligencePage() {
           </h2>
           <div>
             <span className="status-pill aqua">
-              <TrendingUp size={12} /> Escenario sintético 84,7/100
+              <TrendingUp size={12} /> Escenario sintético{" "}
+              {supplierScoreTotal.toLocaleString("es-ES", {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1,
+              })}
+              /100
             </span>
             <p className="hero-microcopy">
-              Ponderación ilustrativa: Calidad 30 % · Costes 15 % · Plazos 20 %
-              · Cumplimiento 20 % · Atención 15 %
+              Cada fila muestra evidencia y peso. Ambos deben acordarse antes de
+              un piloto real.
             </p>
           </div>
         </div>
@@ -96,14 +106,41 @@ export default function IntelligencePage() {
           {supplierScores.map((item) => (
             <div className="score-row" key={item.criterion}>
               <strong>{item.criterion}</strong>
-              <div className="score-track" aria-label={`${item.score} de 100`}>
+              <div
+                className="score-track"
+                role="meter"
+                aria-label={`${item.criterion}: ${item.score} de 100`}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={item.score}
+              >
                 <span style={{ width: `${item.score}%` }} />
               </div>
               <span className="score-value">{item.score}</span>
+              <span className="score-weight">Peso {item.weight} %</span>
               <span className="score-evidence">{item.evidence}</span>
             </div>
           ))}
         </div>
+        <details className="score-method">
+          <summary>Ver fórmula, pesos y gobernanza</summary>
+          <div>
+            <p>
+              <strong>Puntuación = Σ (criterio × peso).</strong> Calidad 30 %,
+              costes 15 %, plazos 20 %, cumplimiento 20 % y atención posterior
+              15 %.
+            </p>
+            <p>
+              Los pesos son una hipótesis ilustrativa, no un estándar. En el
+              piloto se acuerdan con Compras y Calidad, se versionan y se
+              acompañan de la muestra, el periodo y las exclusiones.
+            </p>
+            <p>
+              La puntuación orienta una revisión. No autoriza automáticamente
+              compras, sanciones, bloqueo ni continuidad de un proveedor.
+            </p>
+          </div>
+        </details>
         <div className="notice" style={{ marginTop: 28 }}>
           <AlertCircle
             size={14}

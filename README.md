@@ -37,7 +37,7 @@ npm run test:e2e
 npm audit --audit-level=moderate
 ```
 
-`npm run verify` ejecuta formato, lint, TypeScript, cobertura y build de producción. La lógica de dominio tiene umbral de cobertura del 80 %; el recorrido crítico se prueba en Chromium desktop y móvil.
+`npm run verify` ejecuta formato, lint, TypeScript, cobertura y build de producción. La lógica de dominio tiene umbral de cobertura del 80 %; el recorrido crítico se prueba en Chromium desktop y móvil. Playwright y axe-core comprueban además las rutas principales frente a reglas WCAG A/AA detectables automáticamente.
 
 ## Cloudflare Pages
 

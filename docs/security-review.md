@@ -24,7 +24,7 @@ La superficie publicada es un sitio estático sin autenticación, backend, carga
 - Esquemas Zod con límites para entradas de dominio y ROI.
 - Matriz de transición por actor y gates de cierre/reapertura.
 - Pruebas unitarias para abstención, roles, cierre y límites numéricos.
-- Pruebas E2E desktop y móvil del recorrido crítico.
+- Pruebas E2E desktop y móvil del recorrido crítico y auditoría axe-core WCAG A/AA en cinco rutas.
 - CSP, HSTS, Permissions-Policy, anti-framing, `nosniff`, COOP y CORP.
 - Cache inmutable solo para activos versionados y media local.
 - `security.txt`, sin credenciales y sin dependencias con vulnerabilidades conocidas en el audit actual.
@@ -37,6 +37,26 @@ La superficie publicada es un sitio estático sin autenticación, backend, carga
 4. El enlace de seguridad dirige a la política pública, no a un buzón operativo dedicado.
 
 Estas aceptaciones son razonables para una demo pública sin datos. Dejan de serlo al añadir login, cargas, persistencia, telemetría personal o una API de IA.
+
+## Matriz de cierre de objeciones
+
+| Debilidad revisada                                           | Estado en la demo             | Evidencia                                                                                                        |
+| ------------------------------------------------------------ | ----------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Demo determinista demasiado próxima a IA real                | Cerrada                       | Etiqueta permanente, explicación del modo determinista y matriz demo/piloto/producción.                          |
+| Falsa precisión de confianza o similitud                     | Cerrada                       | Evidencia suficiente/insuficiente, coincidencia cualitativa y razones visibles.                                  |
+| Métricas simuladas que parecen resultados                    | Cerrada                       | Clasificación por escenario sintético, objetivo o supuesto junto a cada cifra.                                   |
+| Explicación inicial compleja                                 | Cerrada                       | Relato Captura, Decide, Previene y demo guiada.                                                                  |
+| Diferencia frente a un ticket manager                        | Cerrada                       | Comparación explícita entre registro de ticket y circuito de evidencia/gates/aprendizaje.                        |
+| Fuentes y fórmulas alejadas de los claims                    | Cerrada                       | Fórmula y sensibilidad junto al ROI, método junto a scorecard y fuentes en metodología.                          |
+| Pesos arbitrarios en scorecard                               | Cerrada para demo             | Pesos visibles, suma validada al 100 %, fórmula y prohibición de decisión automática. El piloto debe acordarlos. |
+| Ausencia de matriz hoy/piloto/futuro                         | Cerrada                       | Capability ledger público y tabla de verdad en metodología.                                                      |
+| Visuales vectoriales repetitivos                             | Cerrada                       | Seis fotografías WebP documentales con etiquetas sintéticas.                                                     |
+| Inputs numéricos sin control suficiente                      | Cerrada                       | Mínimos, máximos, esquema Zod, escenarios no calculables y pruebas de límites.                                   |
+| Protecciones HTTP incompletas                                | Cerrada para la demo estática | CSP, HSTS, anti-framing, Permissions-Policy, COOP, CORP y security.txt verificados en Cloudflare.                |
+| Upload, privacidad, prompt injection y documentos maliciosos | Formalizada, no expuesta      | Threat model y controles obligatorios antes de una fase con upload real.                                         |
+| Pruebas de accesibilidad ausentes                            | Cerrada                       | Axe-core sobre home, demo, inteligencia, impacto y metodología, en desktop y móvil.                              |
+
+“Formalizzata, non esposta” è intenzionale: la demo non accetta file né esegue un modello remoto. MIME, magic bytes, rimozione EXIF, malware scan, URL firmati, RBAC e retention UE diventano implementazione obbligatoria quando quella superficie viene introdotta.
 
 ## Fuentes de control
 

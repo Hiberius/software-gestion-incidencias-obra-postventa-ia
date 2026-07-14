@@ -32,6 +32,39 @@ const pilot = [
   },
 ];
 
+const integrationPaths = [
+  {
+    icon: Braces,
+    status: "Piloto inicial",
+    title: "CSV / XLSX",
+    copy: "Importación de baseline, maestros y casos; exportación de resultados revisados.",
+    guardrail: "Mapeo validado, control de duplicados y exportación firmada.",
+  },
+  {
+    icon: Webhook,
+    status: "No conectado",
+    title: "API / webhook",
+    copy: "Altas, cambios de estado, evidencias y cierres sincronizados en ambos sentidos.",
+    guardrail: "Autenticación, idempotencia, reintentos y cola de errores.",
+  },
+  {
+    icon: DatabaseZap,
+    status: "Conector futuro",
+    title: "ERP / ticketing / repositorios",
+    copy: "Conectores específicos para sistemas de obra, postventa y documentación.",
+    guardrail:
+      "Contrato de datos, permisos y recuperación antes de anunciar disponibilidad.",
+  },
+  {
+    icon: ShieldCheck,
+    status: "Requisito enterprise",
+    title: "SSO / RBAC / auditoría",
+    copy: "Identidad corporativa, segregación por rol, residencia UE y retención acordada.",
+    guardrail:
+      "Autorización server-side y registro append-only de cada decisión.",
+  },
+];
+
 export default function ImpactPage() {
   return (
     <div className="page-shell">
@@ -70,55 +103,31 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <section
-        className="dark-section"
-        style={{ marginInline: "calc(clamp(20px, 5.3vw, 82px) * -1)" }}
-      >
-        <div className="section-shell dark">
+      <section className="dark-section impact-integration">
+        <div className="section-shell dark integration-inner">
           <SectionHeading
             eyebrow="Integración gradual"
             title="Encima de los sistemas existentes, no en contra de ellos."
             copy="La demo es estática y autónoma. La arquitectura de producción propone caminos de integración, no afirma que ya estén implementados."
           />
-          <div
-            className="loop-grid"
-            style={{ gridTemplateColumns: "repeat(4, 1fr)" }}
-          >
-            <article className="loop-step">
-              <Braces size={24} />
-              <div>
-                <h3>CSV</h3>
-                <p>Baseline rápida y exportación controlada.</p>
-              </div>
-            </article>
-            <article className="loop-step">
-              <Webhook size={24} />
-              <div>
-                <h3>API / webhook</h3>
-                <p>Eventos bidireccionales y estados sincronizados.</p>
-              </div>
-            </article>
-            <article className="loop-step">
-              <DatabaseZap size={24} />
-              <div>
-                <h3>Sistemas</h3>
-                <p>
-                  SAP, ticketing y repositorios mediante conectores validados.
-                </p>
-              </div>
-            </article>
-            <article className="loop-step">
-              <ShieldCheck size={24} />
-              <div>
-                <h3>Enterprise</h3>
-                <p>UE, SSO, RBAC, retención y auditoría.</p>
-              </div>
-            </article>
+          <div className="integration-ledger">
+            {integrationPaths.map(
+              ({ icon: Icon, status, title, copy, guardrail }) => (
+                <article key={title}>
+                  <span className="integration-status">{status}</span>
+                  <div className="integration-title">
+                    <Icon size={22} aria-hidden="true" />
+                    <h3>{title}</h3>
+                  </div>
+                  <p>{copy}</p>
+                  <small>{guardrail}</small>
+                </article>
+              ),
+            )}
           </div>
           <Link
-            className="primary-button aqua"
+            className="primary-button aqua integration-cta"
             href="/metodologia/"
-            style={{ marginTop: 34 }}
           >
             Revisar límites y seguridad <ArrowRight size={16} />
           </Link>

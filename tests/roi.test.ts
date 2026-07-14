@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { calculateROI, HIGH_ROI_INPUTS, PRUDENT_ROI_INPUTS } from "@/lib/roi";
+import {
+  calculateROI,
+  HIGH_ROI_INPUTS,
+  PRUDENT_ROI_INPUTS,
+  ROI_SCENARIOS,
+} from "@/lib/roi";
 
 describe("calculateROI", () => {
   it("calculates the prudent scenario from an explicit repeat-visit baseline", () => {
@@ -65,5 +70,20 @@ describe("calculateROI", () => {
         repeatVisitReduction: 0.1,
       }),
     ).toThrow("repeatVisitReduction");
+  });
+
+  it("keeps every public scenario valid, labelled and explicitly illustrative", () => {
+    for (const scenario of Object.values(ROI_SCENARIOS)) {
+      expect(scenario.label.length).toBeGreaterThan(3);
+      expect(scenario.disclosure).toMatch(/supuesto|ilustrativo/i);
+      expect(() => calculateROI(scenario.inputs)).not.toThrow();
+    }
+
+    const conservative = calculateROI(ROI_SCENARIOS.conservative.inputs);
+    const prudent = calculateROI(ROI_SCENARIOS.prudent.inputs);
+    const adoption = calculateROI(ROI_SCENARIOS.adoption.inputs);
+
+    expect(conservative.firstYearROI).toBeLessThan(prudent.firstYearROI);
+    expect(prudent.firstYearROI).toBeLessThan(adoption.firstYearROI);
   });
 });

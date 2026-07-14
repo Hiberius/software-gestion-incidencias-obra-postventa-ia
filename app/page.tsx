@@ -150,6 +150,22 @@ export default function HomePage() {
                 gates humanos.
               </li>
             </ul>
+            <dl className="ticket-difference">
+              <div>
+                <dt>Gestor de tickets</dt>
+                <dd>
+                  Un gestor de tickets registra una solicitud, un responsable y
+                  un estado.
+                </dd>
+              </div>
+              <div>
+                <dt>REPASO AI</dt>
+                <dd>
+                  Conserva evidencia, explica la sugerencia, bloquea el cierre
+                  sin gates humanos y devuelve el aprendizaje al sistema.
+                </dd>
+              </div>
+            </dl>
             <Link className="primary-button aqua" href="/seguimiento/">
               Explorar el caso completo <ArrowRight size={16} />
             </Link>
