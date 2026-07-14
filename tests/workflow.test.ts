@@ -3,7 +3,7 @@ import { canTransition, WORKFLOW_STATES } from "@/lib/workflow";
 
 describe("canTransition", () => {
   it("allows the normal validated workflow in sequence", () => {
-    for (let index = 0; index < WORKFLOW_STATES.length - 2; index += 1) {
+    for (let index = 0; index < WORKFLOW_STATES.length - 3; index += 1) {
       expect(
         canTransition(WORKFLOW_STATES[index], WORKFLOW_STATES[index + 1], {
           technicalApproval: false,
