@@ -1,4 +1,28 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
+
+async function expectEvidenceMarkerAligned(page: Page) {
+  const image = page
+    .locator(".incident-visual.is-before .visual-image")
+    .first();
+  const marker = image.locator(".evidence-marker");
+  const [imageBox, markerBox] = await Promise.all([
+    image.boundingBox(),
+    marker.boundingBox(),
+  ]);
+
+  expect(imageBox).not.toBeNull();
+  expect(markerBox).not.toBeNull();
+
+  const normalizedX =
+    (markerBox!.x + markerBox!.width / 2 - imageBox!.x) / imageBox!.width;
+  const normalizedY =
+    (markerBox!.y + markerBox!.height / 2 - imageBox!.y) / imageBox!.height;
+
+  expect(normalizedX).toBeGreaterThan(0.505);
+  expect(normalizedX).toBeLessThan(0.525);
+  expect(normalizedY).toBeGreaterThan(0.72);
+  expect(normalizedY).toBeLessThan(0.74);
+}
 
 test("a visitor can complete the evidence-backed guided demo", async ({
   page,
@@ -27,6 +51,7 @@ test("a visitor can complete the evidence-backed guided demo", async ({
   await expect(
     page.getByText("Datos simulados para demostración"),
   ).toBeVisible();
+  await expectEvidenceMarkerAligned(page);
 
   await page.getByRole("button", { name: "Analizar incidencia" }).click();
   await expect(
@@ -64,6 +89,7 @@ test("a visitor can complete the evidence-backed guided demo", async ({
   await expect(
     page.getByRole("heading", { name: "Verificación antes / después" }),
   ).toBeVisible();
+  await expectEvidenceMarkerAligned(page);
 
   await page.getByRole("button", { name: "Aprobar técnicamente" }).click();
   await page.getByRole("button", { name: "Registrar conformidad" }).click();

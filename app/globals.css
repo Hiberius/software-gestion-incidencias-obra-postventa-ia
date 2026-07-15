@@ -885,11 +885,12 @@ main {
   width: 44px;
   height: 44px;
   position: absolute;
-  inset-inline-end: 42%;
-  inset-block-end: 23%;
+  inset-inline-start: 51.5%;
+  inset-block-start: 73%;
   border: 1px solid var(--amber);
   border-radius: 50%;
   box-shadow: 0 0 0 4px oklch(79.26% 0.1062 71.67 / 0.22);
+  transform: translate(-50%, -50%);
 }
 
 .incident-visual figcaption {
