@@ -37,7 +37,19 @@ jobs:
         run: npm run verify
 
       - name: Audit production dependency risk
-        run: npm audit --audit-level=moderate
+        run: |
+          for attempt in 1 2 3; do
+            if npm audit --audit-level=moderate; then
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 3 ]; then
+              echo "npm audit failed; retrying after a transient-registry backoff."
+              sleep "$((attempt * 15))"
+            fi
+          done
+
+          exit 1
 
   e2e:
     name: Guided flow and accessibility
