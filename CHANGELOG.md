@@ -2,6 +2,16 @@
 
 Todos los cambios relevantes de REPASO AI se documentan aquí.
 
+## [1.0.1] — 2026-07-24
+
+### Mantenimiento
+
+- dependencias de producción actualizadas mediante una PR de Dependabot;
+- compatibilidad confirmada por build, pruebas unitarias, E2E, accesibilidad y
+  CodeQL;
+- auditoría npm con reintentos limitados ante fallos transitorios del registro,
+  sin suavizar el bloqueo por vulnerabilidades reales.
+
 ## [1.0.0] — 2026-07-24
 
 ### Producto
