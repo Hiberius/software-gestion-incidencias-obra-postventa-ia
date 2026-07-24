@@ -2,6 +2,18 @@
 
 Todos los cambios relevantes de REPASO AI se documentan aquí.
 
+## [1.0.2] — 2026-07-24
+
+### Descubrimiento
+
+- repositorio renombrado según la intención de búsqueda del producto;
+- README convertido en una guía completa sobre gestión de incidencias de obra,
+  postventa inmobiliaria e IA con supervisión humana;
+- título, descripción, Open Graph, manifest y datos estructurados alineados con
+  la misma temática principal;
+- enlaces de CI, CodeQL, seguridad, Discussions e instalación actualizados al
+  nuevo URL canónico de GitHub.
+
 ## [1.0.1] — 2026-07-24
 
 ### Mantenimiento

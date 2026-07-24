@@ -6,21 +6,22 @@ import { SiteShell } from "@/components/site-shell";
 import { GITHUB_URL, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://repaso-ai.pages.dev"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "REPASO AI | Calidad trazable para obra y postventa",
+    default: "Gestión de incidencias de obra con IA | REPASO AI",
     template: "%s | REPASO AI",
   },
   description:
-    "Una demo funcional que convierte señales de obra y postventa en incidencias revisables, cierres humanos y mejoras preventivas.",
+    "Demo de software para gestionar incidencias de obra, preentrega y postventa inmobiliaria con IA, evidencia trazable y validación humana.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_ES",
     url: "/",
     siteName: "REPASO AI",
-    title: "De una foto a una mejora verificable",
-    description: "Calidad trazable para construcción, preentrega y postventa.",
+    title: "Gestión de incidencias de obra con IA | REPASO AI",
+    description:
+      "Software demostrativo para gestionar incidencias de construcción y postventa inmobiliaria con evidencia y cierre humano verificable.",
     images: [
       {
         url: "/media/hero-quality-review.webp",
@@ -32,8 +33,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "REPASO AI | De una foto a una mejora verificable",
-    description: "Demo funcional de calidad trazable para obra y postventa.",
+    title: "Gestión de incidencias de obra con IA | REPASO AI",
+    description:
+      "Demo funcional para gestionar incidencias de obra y postventa inmobiliaria con evidencia trazable y validación humana.",
     images: ["/media/hero-quality-review.webp"],
   },
   robots: { index: true, follow: true },
@@ -56,7 +58,7 @@ const structuredData = {
       name: "REPASO AI",
       inLanguage: "es",
       description:
-        "Calidad trazable para construcción, preentrega y postventa.",
+        "Software demostrativo de gestión de incidencias para construcción, preentrega y postventa inmobiliaria con inteligencia artificial.",
       creator: { "@id": `${SITE_URL}/#creator` },
     },
     {
@@ -71,7 +73,7 @@ const structuredData = {
       isAccessibleForFree: true,
       image: `${SITE_URL}/media/hero-quality-review.webp`,
       description:
-        "Demo funcional que convierte señales de obra y postventa en incidencias revisables, cierres humanos y mejoras preventivas.",
+        "Demo funcional de software para gestionar incidencias de obra y postventa inmobiliaria con IA, evidencia trazable y validación humana.",
       featureList: [
         "Captura y clasificación asistida de incidencias",
         "Revisión humana y abstención por falta de evidencia",

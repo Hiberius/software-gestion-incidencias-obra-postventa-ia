@@ -4,10 +4,10 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "REPASO AI — Calidad trazable",
+    name: "REPASO AI — Gestión de incidencias de obra con IA",
     short_name: "REPASO AI",
     description:
-      "Demo funcional de calidad trazable para construcción, preentrega y postventa.",
+      "Software demostrativo para gestionar incidencias de obra y postventa inmobiliaria con IA y validación humana.",
     start_url: "/",
     display: "standalone",
     background_color: "#f4f1e9",

@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Reportar una vulnerabilidad
-    url: https://github.com/Hiberius/repaso-ai/security/advisories/new
+    url: https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/security/advisories/new
     about: Utiliza un canal privado para problemas de seguridad.
   - name: Demo pública
     url: https://repaso-ai.pages.dev/

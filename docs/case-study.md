@@ -1,8 +1,8 @@
-# Case study — REPASO AI
+# IA para gestionar incidencias de obra y postventa inmobiliaria
 
-## Del reto abierto a un producto evaluable
+## Caso de estudio de REPASO AI: del reto abierto a un producto evaluable
 
-REPASO AI nació como respuesta independiente al Metrovacesa AI Challenge II. El objetivo no era producir una presentación sobre una idea hipotética, sino demostrar una tesis operativa:
+REPASO AI nació como respuesta independiente al Metrovacesa AI Challenge II. Este caso de estudio explica cómo se diseñó una demo funcional de **software para gestionar incidencias de obra, preentrega y postventa inmobiliaria con IA**. El objetivo no era producir una presentación sobre una idea hipotética, sino demostrar una tesis operativa:
 
 > Una incidencia de calidad genera valor cuando entra con evidencia suficiente, se resuelve con responsabilidad visible, se cierra con verificación humana y deja una mejora que evita repetición.
 

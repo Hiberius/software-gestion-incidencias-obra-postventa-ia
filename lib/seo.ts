@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 export const SITE_URL = "https://repaso-ai.pages.dev";
-export const GITHUB_URL = "https://github.com/Hiberius/repaso-ai";
+export const GITHUB_URL =
+  "https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia";
 
 type PageMetadataInput = {
   title: string;

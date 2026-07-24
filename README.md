@@ -1,23 +1,37 @@
-# REPASO AI
+# Software con IA para gestionar incidencias de obra y postventa inmobiliaria
 
-### De la foto al cierre verificado. De cada incidencia, una mejora.
+## REPASO AI: de la foto al cierre técnico verificado
 
 [![Demo pública](https://img.shields.io/badge/demo-repaso--ai.pages.dev-4bd4c2?style=for-the-badge&labelColor=061f24)](https://repaso-ai.pages.dev/)
-[![CI](https://github.com/Hiberius/repaso-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/Hiberius/repaso-ai/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/Hiberius/repaso-ai/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hiberius/repaso-ai/actions/workflows/codeql.yml)
+[![CI](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/actions/workflows/ci.yml/badge.svg)](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/actions/workflows/codeql.yml)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-ffffff?style=flat-square&logo=nextdotjs&logoColor=000000)](https://nextjs.org/)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-f38020?style=flat-square&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
 [![Node 22](https://img.shields.io/badge/Node.js-22-5fa04e?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
-![REPASO AI — responsable de calidad revisando evidencias de obra](public/media/hero-quality-review.webp)
+![Software de gestión de incidencias de obra y postventa inmobiliaria con IA](public/media/hero-quality-review.webp)
 
-REPASO AI es un prototipo funcional de **inteligencia de calidad para construcción, preentrega y postventa**. Convierte una señal incompleta —una foto, un mensaje o un documento— en una incidencia revisable; conserva la decisión humana; exige evidencia antes del cierre; y devuelve lo aprendido al sistema como recurrencia, checklist o acción preventiva.
+**REPASO AI es una demo funcional de software para gestionar incidencias de obra, preentrega y postventa inmobiliaria con inteligencia artificial.** Convierte una fotografía, un mensaje o un documento incompleto en una incidencia revisable; conserva la decisión técnica humana; exige evidencia antes del cierre; y devuelve lo aprendido al proceso como recurrencia, checklist o acción preventiva.
 
-No es una maqueta estática ni una promesa de “IA mágica”. Es una demo interactiva, auditable y desplegada, construida para demostrar el circuito completo con datos sintéticos y límites visibles.
+Está pensada para promotoras, constructoras, direcciones facultativas y equipos de calidad o postventa que necesitan reducir información incompleta, reasignaciones, cierres débiles y defectos repetitivos. No es una promesa de automatización total: es una experiencia interactiva, auditable y desplegada que demuestra el circuito completo con datos sintéticos y límites visibles.
+
+Este repositorio funciona como producto demostrativo y como **caso de estudio de IA aplicada al control de calidad en construcción**. Documenta el problema, el diseño del workflow, la diferencia frente a un gestor de tickets, la arquitectura, la seguridad, el ROI, el piloto y todas las decisiones tomadas durante el desarrollo.
 
 > **Estado de candidatura.** REPASO AI fue presentado como candidatura independiente al **Metrovacesa AI Challenge II**. Ante un problema técnico con la carga del formulario, se preparó y remitió un paquete de candidatura con demo pública, dossier completo y resumen ejecutivo. La existencia de la candidatura no implica selección, validación ni relación comercial con Metrovacesa.
 
-## Explorar el producto
+## Guía completa: gestión de incidencias de construcción con IA
+
+En este artículo se puede comprobar:
+
+- cómo estructurar una incidencia de obra a partir de evidencia incompleta;
+- cómo aplicar IA en postventa inmobiliaria sin delegar decisiones técnicas;
+- qué diferencia este enfoque de un software de ticketing convencional;
+- cómo verificar una reparación antes de cerrar el caso;
+- cómo detectar recurrencias sin fusionar incidencias automáticamente;
+- qué controles de seguridad necesita una futura plataforma con uploads e IA;
+- cómo calcular el ROI mediante supuestos editables y no mediante resultados inventados.
+
+## Demo del software de gestión de incidencias
 
 - [Abrir la demo pública](https://repaso-ai.pages.dev/)
 - [Recorrer la incidencia guiada](https://repaso-ai.pages.dev/demo/)
@@ -30,7 +44,7 @@ No es una maqueta estática ni una promesa de “IA mágica”. Es una demo inte
 - [Abrir el dossier de candidatura](output/pdf/repaso-ai-candidatura.pdf)
 - [Abrir el resumen ejecutivo](output/pdf/repaso-ai-resumen-ejecutivo.pdf)
 
-## El problema
+## El problema de gestionar incidencias de obra y postventa
 
 En obra y postventa, la incidencia rara vez nace completa. La evidencia queda fragmentada entre fotografías, mensajes, hojas de cálculo, herramientas de ticketing y conversaciones con proveedores. El coste no está solo en registrar el caso:
 
@@ -41,9 +55,9 @@ En obra y postventa, la incidencia rara vez nace completa. La evidencia queda fr
 - una foto “después” puede parecer suficiente sin demostrar la reparación;
 - el caso se cierra, pero la organización vuelve a encontrar el mismo patrón.
 
-Un gestor de tickets mueve solicitudes entre estados. El problema de calidad exige algo más: **evidencia suficiente, criterio profesional, trazabilidad y aprendizaje preventivo**.
+Un gestor de tickets mueve solicitudes entre estados. La gestión de incidencias de construcción exige algo más: **evidencia suficiente, criterio profesional, trazabilidad y aprendizaje preventivo**.
 
-## La solución
+## Cómo funciona el software de gestión de incidencias
 
 REPASO AI organiza un circuito cerrado:
 
@@ -61,9 +75,9 @@ flowchart LR
 
 La IA propuesta **asiste**; nunca certifica, sanciona, fusiona casos ni cierra una incidencia. Las transiciones materiales permanecen bajo control humano.
 
-## Qué se puede probar hoy
+## IA aplicada al control de calidad en construcción
 
-![Página principal de REPASO AI](docs/assets/01-home.webp)
+![Demo de software para gestionar incidencias de construcción](docs/assets/01-home.webp)
 
 ### 1. Captura y análisis explicable
 
@@ -97,7 +111,7 @@ El caso de negocio separa régimen estable, adopción del primer año y coste de
 
 ![Calculadora de ROI y piloto propuesto](docs/assets/05-impact.webp)
 
-## Por qué no es otro ticket manager
+## Diferencias frente a un ticket manager o software de postventa
 
 | Gestor de tickets                         | REPASO AI                                                   |
 | ----------------------------------------- | ----------------------------------------------------------- |
@@ -108,7 +122,7 @@ El caso de negocio separa régimen estable, adopción del primer año y coste de
 | Termina cuando se cierra el ticket.       | Devuelve el caso verificado a prevención y control.         |
 | Reporta métricas operativas.              | Separa dato sintético, objetivo, supuesto y resultado real. |
 
-## Capacidad real: hoy, piloto y producción
+## Qué está implementado hoy y qué requiere un piloto
 
 | Fase                  | Incluido                                                                                               | Deliberadamente fuera de alcance                                             |
 | --------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
@@ -118,7 +132,7 @@ El caso de negocio separa régimen estable, adopción del primer año y coste de
 
 Esta separación es una decisión de producto: una arquitectura futura no debe confundirse con una capacidad disponible.
 
-## Arquitectura de la demo
+## Arquitectura del software para incidencias de construcción
 
 ```mermaid
 flowchart TB
@@ -149,7 +163,7 @@ flowchart LR
 
 Consulta [la arquitectura detallada](docs/architecture.md) y [el threat model](docs/ai-safety-and-human-review.md).
 
-## Seguridad y gobierno de IA
+## Seguridad, privacidad y gobierno de IA
 
 El producto parte de cinco invariantes:
 
@@ -172,7 +186,7 @@ Antes de introducir upload o IA remota son obligatorios: validación MIME/tamañ
 
 Lee [SECURITY.md](SECURITY.md) y [la revisión externa](docs/security-review.md).
 
-## ROI y piloto
+## ROI de un software de postventa inmobiliaria
 
 La calculadora usa entradas editables para:
 
@@ -199,7 +213,7 @@ El piloto propuesto dura 12 semanas:
 
 Los objetivos publicados son criterios de evaluación, no promesas.
 
-## Cómo se construyó
+## Cómo se diseñó y construyó el producto AI-first
 
 El proyecto siguió un proceso de producto completo:
 
@@ -218,7 +232,7 @@ El trabajo fue dirigido por **Christian Calabrò** con un workflow intensivo de 
 
 El [case study](docs/case-study.md) documenta decisiones, objeciones, iteraciones y evidencias.
 
-## Calidad verificable
+## Pruebas, accesibilidad y calidad del software
 
 Los checks locales y de CI son los mismos:
 
@@ -239,7 +253,7 @@ npm audit --audit-level=moderate
 Playwright prueba el recorrido crítico en Chromium desktop y WebKit móvil.
 Axe-core audita automáticamente reglas WCAG A/AA en las rutas principales.
 
-## Stack
+## Tecnologías utilizadas
 
 - Next.js 16, React 19 y TypeScript estricto;
 - App Router con `output: "export"`;
@@ -249,13 +263,13 @@ Axe-core audita automáticamente reglas WCAG A/AA en las rutas principales.
 - Cloudflare Pages para entrega estática;
 - GitHub Actions, CodeQL y Dependabot para calidad continua.
 
-## Desarrollo local
+## Instalación y desarrollo local
 
 Requisitos: Node.js 22 y npm.
 
 ```bash
-git clone https://github.com/Hiberius/repaso-ai.git
-cd repaso-ai
+git clone https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia.git
+cd software-gestion-incidencias-obra-postventa-ia
 npm ci
 npm run dev
 ```
@@ -299,13 +313,35 @@ scripts/                generación del dossier y capturas reproducibles
 - [Dossier de candidatura](output/pdf/repaso-ai-candidatura.pdf)
 - [Checksums de artefactos](ARTIFACTS.sha256)
 
-## Autor y trabajo
+## Preguntas frecuentes sobre la gestión de incidencias con IA
+
+### ¿Qué es un software de gestión de incidencias de obra?
+
+Es una herramienta que registra defectos o no conformidades, conserva su evidencia, asigna responsables, controla plazos y documenta la resolución. REPASO AI añade suficiencia de evidencia, sugerencias editables, verificación humana y aprendizaje preventivo.
+
+### ¿Cómo puede ayudar la IA en la postventa inmobiliaria?
+
+Puede ordenar información incompleta, sugerir categorías, explicar coincidencias, solicitar evidencias faltantes y detectar patrones revisables. No debe diagnosticar una patología, atribuir responsabilidad contractual ni certificar una reparación por sí sola.
+
+### ¿La IA puede cerrar automáticamente una incidencia?
+
+No. En este diseño el cierre exige aprobación técnica y conformidad del cliente. La IA organiza y sugiere; una persona revisa y responde por la decisión.
+
+### ¿REPASO AI es un producto de producción?
+
+La versión pública es una demo estática con datos e imágenes sintéticos. Un piloto con información real requeriría identidad, permisos, almacenamiento privado, retención, auditoría, validación de archivos y evaluación del modelo.
+
+### ¿Se puede probar el flujo completo?
+
+Sí. La [demo guiada](https://repaso-ai.pages.dev/demo/) permite recorrer captura, análisis, posible duplicado, asignación, verificación y cierre trazable sin enviar información a un servidor.
+
+## Autor: diseño y desarrollo de productos con IA
 
 REPASO AI fue concebido y dirigido por [Christian Calabrò](https://github.com/Hiberius).
 
 Este repositorio también funciona como muestra del tipo de productos que construye: conceptos AI-first convertidos en experiencias utilizables, con estrategia, diseño, arquitectura, seguridad, evaluación y narrativa comercial resueltos como un único sistema.
 
-Para una colaboración, piloto o adaptación del producto, utiliza [GitHub Discussions](https://github.com/Hiberius/repaso-ai/discussions) o abre una [consulta](https://github.com/Hiberius/repaso-ai/issues/new/choose) sin incluir datos confidenciales.
+Para una colaboración, piloto o adaptación del producto, utiliza [GitHub Discussions](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/discussions) o abre una [consulta](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/issues/new/choose) sin incluir datos confidenciales.
 
 ## Avisos
 

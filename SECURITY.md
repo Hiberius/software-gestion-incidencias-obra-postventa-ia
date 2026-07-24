@@ -14,7 +14,7 @@ Solo la última versión publicada en `main` y desplegada en [repaso-ai.pages.de
 
 No publiques una vulnerabilidad explotable ni datos sensibles en un issue.
 
-Utiliza el canal privado de [GitHub Security Advisories](https://github.com/Hiberius/repaso-ai/security/advisories/new). Incluye:
+Utiliza el canal privado de [GitHub Security Advisories](https://github.com/Hiberius/software-gestion-incidencias-obra-postventa-ia/security/advisories/new). Incluye:
 
 - componente y versión afectados;
 - pasos mínimos de reproducción;
