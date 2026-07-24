@@ -5,18 +5,38 @@ async function expectEvidenceMarkerAligned(page: Page) {
     .locator(".incident-visual.is-before .visual-image")
     .first();
   const marker = image.locator(".evidence-marker");
-  const [imageBox, markerBox] = await Promise.all([
-    image.boundingBox(),
-    marker.boundingBox(),
-  ]);
+  await expect(marker).toBeVisible();
 
-  expect(imageBox).not.toBeNull();
-  expect(markerBox).not.toBeNull();
+  const { imageBox, markerBox } = await image.evaluate((element) => {
+    const markerElement = element.querySelector(".evidence-marker");
+
+    if (!(markerElement instanceof HTMLElement)) {
+      throw new Error("Evidence marker not found.");
+    }
+
+    const imageRect = element.getBoundingClientRect();
+    const markerRect = markerElement.getBoundingClientRect();
+
+    return {
+      imageBox: {
+        x: imageRect.x,
+        y: imageRect.y,
+        width: imageRect.width,
+        height: imageRect.height,
+      },
+      markerBox: {
+        x: markerRect.x,
+        y: markerRect.y,
+        width: markerRect.width,
+        height: markerRect.height,
+      },
+    };
+  });
 
   const normalizedX =
-    (markerBox!.x + markerBox!.width / 2 - imageBox!.x) / imageBox!.width;
+    (markerBox.x + markerBox.width / 2 - imageBox.x) / imageBox.width;
   const normalizedY =
-    (markerBox!.y + markerBox!.height / 2 - imageBox!.y) / imageBox!.height;
+    (markerBox.y + markerBox.height / 2 - imageBox.y) / imageBox.height;
 
   expect(normalizedX).toBeGreaterThan(0.505);
   expect(normalizedX).toBeLessThan(0.525);
