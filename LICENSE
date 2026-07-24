@@ -1,0 +1,32 @@
+REPASO AI EVALUATION LICENSE
+
+Copyright (c) 2026 Christian Calabrò. All rights reserved.
+
+The source code, documentation, visual design, generated media and application
+materials in this repository are made publicly available solely for personal
+review, evaluation, educational inspection and portfolio purposes.
+
+Without prior written permission from the copyright holder, you may not:
+
+1. use the project or any substantial part of it for commercial purposes;
+2. reproduce, redistribute, sublicense, sell or host a modified or unmodified
+   copy as a product or service;
+3. use the REPASO AI name, visual identity or application materials to imply
+   authorship, endorsement, partnership or affiliation;
+4. train, fine-tune or benchmark a commercial model on the repository content;
+5. remove copyright, attribution, provenance or synthetic-data notices.
+
+You may clone the repository and run it locally for the permitted purposes.
+Small excerpts may be quoted where allowed by applicable law, with attribution.
+
+Third-party dependencies remain subject to their own licenses. See
+THIRD_PARTY_NOTICES.md.
+
+THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+MATERIAL OR ITS USE.
+
+For commercial licensing, pilots or adaptations, contact the copyright holder
+through https://github.com/Hiberius.

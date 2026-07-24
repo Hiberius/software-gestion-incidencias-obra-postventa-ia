@@ -1,26 +1,28 @@
-REPASO AI - ENVIO ESTA NOCHE
+REPASO AI - ARCHIVO DE CANDIDATURA
 
-ARCHIVO QUE SE SUBE AL FORMULARIO
+ESTADO
+Paquete preparado para la candidatura independiente al
+Metrovacesa AI Challenge II.
+
+Tras un problema técnico en la carga del formulario, la candidatura se
+remitió por el canal de soporte con enlaces y adjuntos. Este repositorio
+conserva el material de presentación; no publica datos privados de contacto
+ni implica selección, validación o relación comercial con Metrovacesa.
+
+PRESENTACIÓN PRINCIPAL
 repaso-ai-candidatura.pdf
 
-URL QUE SE PEGA EN "VIDEO O DEMO"
+RESUMEN EJECUTIVO
+repaso-ai-resumen-ejecutivo.pdf
+
+DEMO PÚBLICA
 https://repaso-ai.pages.dev/
 
-NO ES NECESARIO SUBIR EL RESUMEN EJECUTIVO.
-Se incluye como apoyo para email, reunion o revision rapida.
+ÁREAS DE LA PROPUESTA
+1. Construcción y Obra
+2. Postventa
+3. Eficiencia de procesos y costes
 
-CAMPOS PENDIENTES DE CONFIRMAR
-1. Email del contacto.
-2. Grafia exacta del nombre y apellido.
-3. Nombre fiscal o comercial que se desea mostrar como empresa.
-
-AREAS A MARCAR
-1. Construccion y Obra
-2. Post-venta
-3. Eficiencia de procesos/costes
-
-IMPORTANTE
-El formulario oficial acepta PDF o PPT/PPTX de hasta 50 MB.
-La presentacion principal pesa menos de 6 MB.
-No pulses "Enviar candidatura" hasta revisar la captura completa.
-
+ALCANCE
+La demo es funcional, determinista y utiliza datos sintéticos. Las
+capacidades de piloto y producción se documentan como propuestas futuras.

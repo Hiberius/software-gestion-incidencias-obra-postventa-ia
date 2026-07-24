@@ -28,7 +28,7 @@ export default function VerificationPage() {
         </div>
         <div className="panel-body">
           <div className="analysis-grid">
-            <IncidentVisual variant="before" label="ANTES · 02 JUL" />
+            <IncidentVisual variant="before" label="ANTES · 02 JUL" priority />
             <IncidentVisual variant="after" label="DESPUÉS · 08 JUL" />
           </div>
           <div className="notice">

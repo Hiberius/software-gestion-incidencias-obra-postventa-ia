@@ -1,0 +1,55 @@
+name: Reportar un error
+description: Comunica un comportamiento reproducible sin incluir datos confidenciales.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudar a mejorar REPASO AI. Para vulnerabilidades utiliza un Security Advisory privado.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Comportamiento observado
+      description: Explica qué ocurrió y qué esperabas.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos de reproducción
+      description: Incluye la ruta, las acciones y el resultado.
+      placeholder: |
+        1. Abrir…
+        2. Pulsar…
+        3. Observar…
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Entorno
+      options:
+        - Escritorio
+        - Móvil
+        - CI o desarrollo local
+        - Otro
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador y versión
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia adicional
+      description: Capturas o logs sin secretos ni datos de terceros.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Privacidad
+      options:
+        - label: Confirmo que no he incluido datos personales, credenciales ni material confidencial.
+          required: true

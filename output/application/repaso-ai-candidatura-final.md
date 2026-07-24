@@ -8,7 +8,7 @@ Documento operativo para la candidatura al Metrovacesa AI Challenge II.
 | ------------------------------ | ------------------------------------- |
 | Nombre y apellido del contacto | Christian Calabro                     |
 | Nombre de la empresa           | REPASO AI - Profesional independiente |
-| E-mail del contacto            | **COMPLETAR ANTES DE ENVIAR**         |
+| E-mail del contacto            | No publicado en el repositorio        |
 | Tamaño del equipo              | 1                                     |
 | Area 1                         | Construccion y Obra                   |
 | Area 2                         | Post-venta                            |

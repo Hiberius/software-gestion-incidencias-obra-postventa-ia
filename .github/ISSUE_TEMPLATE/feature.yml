@@ -1,0 +1,36 @@
+name: Proponer una mejora
+description: Describe una mejora de producto con resultado verificable.
+title: "[Mejora]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema de usuario
+      description: ¿Quién tiene el problema y qué intenta conseguir?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Resultado esperado
+      description: Describe el cambio observable, no solo una función.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Explica una posible solución y sus límites.
+  - type: checkboxes
+    id: invariants
+    attributes:
+      label: Invariantes
+      options:
+        - label: Mantiene la decisión humana en acciones materiales.
+          required: true
+        - label: No presenta datos sintéticos u objetivos como resultados.
+          required: true
+        - label: Mantiene compatibilidad con el export estático o documenta una migración.
+          required: true

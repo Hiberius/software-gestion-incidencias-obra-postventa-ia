@@ -1,42 +1,50 @@
-# Checklist de envio - Metrovacesa AI Challenge II
+# Registro de entrega — Metrovacesa AI Challenge II
 
-## Antes de abrir el formulario
+## Estado
 
-- [ ] Confirmar la grafia legal del nombre: `Christian Calabro`.
-- [ ] Confirmar el nombre que debe figurar como empresa: `REPASO AI - Profesional independiente`.
-- [ ] Tener a mano el email de contacto.
-- [ ] Abrir la demo en una ventana anonima: https://repaso-ai.pages.dev/
-- [ ] Comprobar que el PDF abre correctamente y pesa menos de 50 MB.
+REPASO AI se preparó y presentó como candidatura independiente. Tras un
+problema técnico en la carga del formulario, el paquete se remitió mediante el
+canal de soporte con demo pública y documentos adjuntos.
 
-## Campos del formulario
+Este registro describe la preparación del material. No publica el correo de
+contacto ni afirma selección, validación o relación comercial.
 
-- [ ] Nombre y apellido del contacto.
-- [ ] Nombre de la empresa.
-- [ ] E-mail del contacto.
-- [ ] Tamano del equipo: `1`.
-- [ ] Marcar exactamente tres areas: `Construccion y Obra`, `Post-venta`, `Eficiencia de procesos/costes`.
-- [ ] Adjuntar `repaso-ai-candidatura.pdf`.
-- [ ] Pegar `https://repaso-ai.pages.dev/` en el campo opcional de video o demo.
-- [ ] Leer y aceptar Politica de Privacidad y Bases Legales.
+## Paquete conservado
 
-## Control final del contenido
+- [x] Dossier principal: `repaso-ai-candidatura.pdf`.
+- [x] Resumen ejecutivo: `repaso-ai-resumen-ejecutivo.pdf`.
+- [x] Demo pública: https://repaso-ai.pages.dev/
+- [x] Texto final de candidatura.
+- [x] Plan de piloto.
+- [x] Arquitectura y revisión de seguridad.
+- [x] Copia reproducible del producto.
 
-- [ ] La demo se describe como funcional, publica, determinista y con datos sinteticos.
-- [ ] Las capacidades de piloto y produccion no aparecen como implementadas hoy.
-- [ ] Los porcentajes aparecen como objetivos o hipotesis, no como resultados logrados.
-- [ ] El ROI muestra formula, costes, rampa de adopcion y sensibilidad.
-- [ ] El cierre y las decisiones materiales requieren validacion humana.
-- [ ] No se afirma que REPASO AI diagnostique o certifique tecnicamente una reparacion.
-- [ ] No se utilizan datos personales, logos o documentacion real de terceros en la presentacion.
+## Control final aplicado
 
-## Momento del envio
+- [x] La demo se describe como funcional, pública, determinista y con datos
+      sintéticos.
+- [x] Las capacidades de piloto y producción no aparecen como implementadas
+      hoy.
+- [x] Los porcentajes aparecen como objetivos o hipótesis, no como resultados
+      logrados.
+- [x] El ROI muestra fórmula, costes, rampa de adopción y sensibilidad.
+- [x] El cierre y las decisiones materiales requieren validación humana.
+- [x] No se afirma que REPASO AI diagnostique o certifique técnicamente una
+      reparación.
+- [x] No se utilizan datos personales, logos o documentación real de terceros
+      en la presentación.
+- [x] El dossier principal permanece por debajo del límite publicado de 50 MB.
 
-- [ ] Guardar una copia del PDF definitivo.
-- [ ] Hacer una captura del formulario completo antes de enviar.
-- [ ] Enviar una sola vez y esperar la confirmacion de la pagina.
-- [ ] Guardar captura, fecha/hora y cualquier email de confirmacion.
-- [ ] Si el formulario da error, no repetir a ciegas: conservar la captura e inviare a `mvcaichallenge@thefringelabs.com`.
+## Incidencia de envío
 
-## Fecha límite prudente
+La carga del formulario no completó el proceso esperado. Se conservó la
+evidencia del fallo y se preparó una comunicación de soporte con:
 
-La página principal indica el 16 de julio como cierre. Las condiciones generales publicadas muestran una ventana distinta. Por prudencia, enviar antes del 16 de julio y conservar una prueba del envío.
+1. explicación breve del problema;
+2. enlace a la demo;
+3. dossier principal;
+4. resumen ejecutivo;
+5. solicitud de confirmación de recepción.
+
+La contingencia evitó modificar o reenviar a ciegas el formulario y mantuvo una
+ruta de entrega verificable.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Reportar una vulnerabilidad
+    url: https://github.com/Hiberius/repaso-ai/security/advisories/new
+    about: Utiliza un canal privado para problemas de seguridad.
+  - name: Demo pública
+    url: https://repaso-ai.pages.dev/
+    about: Comprueba primero el comportamiento en la versión desplegada.
