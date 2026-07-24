@@ -236,7 +236,8 @@ npm audit --audit-level=moderate
 - Vitest con cobertura mínima del 80 % en lógica de dominio;
 - build estático de producción.
 
-Playwright prueba el recorrido crítico en Chromium desktop y móvil. Axe-core audita automáticamente reglas WCAG A/AA en las rutas principales.
+Playwright prueba el recorrido crítico en Chromium desktop y WebKit móvil.
+Axe-core audita automáticamente reglas WCAG A/AA en las rutas principales.
 
 ## Stack
 
